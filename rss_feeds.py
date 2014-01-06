@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 
 import feedparser
-from configurations import HINDUSTAN_TIMES_NDLS, TOI_NDLS
+from variables import HINDUSTAN_TIMES_NDLS, TOI_NDLS
 from  datetime import datetime
 import time
 
@@ -51,6 +51,4 @@ def toi_ndls_rss():
 
 
 
-if __name__ == "__main__":
-	pass
 
