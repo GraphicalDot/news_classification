@@ -7,7 +7,6 @@ from logging.handlers import RotatingFileHandler
 from variables import LOGGING_PATH
 
 def exceptions_logging(error):
-	print LOGGING_PATH
 	path = "%s/exception_logs.logs"%(LOGGING_PATH)
 	log = logging.getLogger("Exceptions_Logs")
 	handler = RotatingFileHandler(path, maxBytes=10000, backupCount=1)
@@ -17,11 +16,11 @@ def exceptions_logging(error):
 	handler.setFormatter(formatter)
 	log.addHandler(handler)
 	log.error(error)
+	sys.exit(1)
 
 def app_logger(app):
 	my_logger = logging.getLogger('MyLogger')
 
-#	my_logger.setLevel(logging.DEBUG)
 	handler = RotatingFileHandler(LOG_FILENAME, maxBytes=10000, backupCount=1)
 	
 	formatter = logging.Formatter('%(asctime)s %(levelname)s: %(message)s %(module)s [in %(pathname)s:%(lineno)d]')
@@ -35,5 +34,6 @@ def app_logger(app):
 	app.logger.debug('A value for debugging')
 	app.logger.warning('A warning occurred (%d apples)', 42)
 	app.logger.info("My App")
+	sys.exit(1)
 
 

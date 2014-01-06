@@ -1,22 +1,23 @@
 #!/usr/bin/env python
 
+from variables import DB
 import pymongo
-from full_text import hindustan_ndls_data, hindu_ndls_data, toi_ndls_data 
-connection = pymongo.Connection()
-database = connection.news
-collection = database.create
+
 
 def collection(name):
+	"""
+	This function returns the collection object from the mongodb on the basis of the collection name provided to it 
+	in the arguments.
+	If the collection is not being present, it will be created
+	"""
+	
 	try:
-		collection = database.create_collection(name)
+		collection = DB.create_collection(name)
 		return collection
 	except pymongo.errors.CollectionInvalid:
-		return eval("database.%s"%(name))
+		return eval("DB.%s"%(name))
 
 
-
-
-if __name__ == "__main__":
 
 
 

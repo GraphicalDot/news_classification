@@ -1,9 +1,22 @@
 #!/usr/bin/env python
 
 import feedparser
-from variables import HINDUSTAN_TIMES_NDLS, TOI_NDLS, HINDU_NDLS
+from variables import HINDUSTAN_TIMES_NDLS, TOI_NDLS, HINDU_NDLS, DB
+from database import collection
 from  datetime import datetime
 import time
+
+
+def updating_epoch_collection(src_name, epoch):
+	"""
+	This function updates the enteries in the epoch collection.If the enteries is not present it will be created(
+	as the upsert flag is set to be True.
+
+	"""
+	collection = collection("Epoch")
+	collection.update({"name": src_name},{"$set": {"epoch": epoch}}, upsert = True)
+	sys.exit(1)
+
 
 def converting_to_epoch(time_struct_object):
 	"""
