@@ -18,14 +18,14 @@ def extracting_text(link):
 	except Exception as e:
 		exceptions_logging(e)
 
-def hindustan_ndls_text():
+def hindustan_ndls_data():
 	data = hindustan_ndls_rss()
 	for news in data:
 		news["full_text"] =  extracting_text(news.get("link"))
 	return data
 
 
-def hindu_text():
+def hindu_ndls_data():
 	data = hindu_ndls_rss()
 	for news in data[0:1]:
 		news["full_text"] =  extracting_text(news.get("link"))
@@ -33,15 +33,13 @@ def hindu_text():
 
 
 
-def toi_ndls_text():
+def toi_ndls_data():
 	data = toi_ndls_rss()
 	for news in data:
 		news["full_text"] =  extracting_text(news.get("link"))
 	return data
 
 
-if __name__ == "__main__":
-	print hindu_text()
 
 
 
