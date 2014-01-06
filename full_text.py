@@ -5,7 +5,7 @@ import os
 import goose
 import time
 import logging
-from rss_feeds import hindustan_ndls_rss, toi_ndls_rss
+from rss_feeds import hindustan_ndls_rss, toi_ndls_rss, hindu_ndls_rss
 from custom_logging import exceptions_logging
 _g_instance = goose.Goose()
 
@@ -19,19 +19,29 @@ def extracting_text(link):
 		exceptions_logging(e)
 
 def hindustan_ndls_text():
-	for news in hindustan_ndls_rss():
+	data = hindustan_ndls_rss()
+	for news in data:
+		news["full_text"] =  extracting_text(news.get("link"))
+	return data
+
+
+def hindu_text():
+	data = hindu_ndls_rss()
+	for news in data[0:1]:
 		news["full_text"] =  extracting_text(news.get("link"))
 	return data
 
 
 
 def toi_ndls_text():
-	for news in toi_ndls_rss():
+	data = toi_ndls_rss()
+	for news in data:
 		news["full_text"] =  extracting_text(news.get("link"))
 	return data
 
 
-
+if __name__ == "__main__":
+	print hindu_text()
 
 
 
