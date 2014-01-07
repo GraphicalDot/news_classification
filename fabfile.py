@@ -35,13 +35,29 @@ def virtual_env():
 				run("git clone https://github.com/kaali-python/news_classification.git")
 				run("ls")
 
+def updating_git():
+	with prefix("cd /home/ubuntu/VirtualEnvironment &&source bin/activate && cd news_classification"):
+		run("git pull origin master")
 
-def diploy():
+def installation_script():
+	with prefix("cd /home/ubuntu/VirtualEnvironment &&source bin/activate && cd news_classification"):
+		run("sudo chmod 755 installation.sh")
+		run("./installation.sh")
+
+
+def deploy():
 	print(_green("Connecting to EC2 Instance..."))	
 	with hide("warnings"):
 	#	execute(AD_virtuaEnv)
-		execute(virtual_env)
+		execute(installation_script)
 		print(_yellow("...Disconnecting EC2 instance..."))
 		disconnect_all()
 
+def update():
+	print(_green("Connecting to EC2 Instance..."))	
+	with hide("warnings"):
+		execute(updating_git)
+		execute(installation_script)
+		print(_yellow("...Disconnecting EC2 instance..."))
+		disconnect_all()
 
