@@ -1,7 +1,16 @@
 #!/usr/bin/env python
+"""
+This python file have the important database functions to be used while insertion of data.
 
-from variables import DB
-import pymongo
+"""
+from pymongo import MongoClient
+
+
+CONNECTION = MongoClient("localhost", 27017, w=1, j=True)
+DB = CONNECTION.news
+#wValue == 1 perform a write acknowledgement
+#journal(j) true: Sync to journal.
+
 
 
 def collection(name):

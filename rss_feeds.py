@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 
 import feedparser
-from variables import HINDUSTAN_TIMES_NDLS, TOI_NDLS, HINDU_NDLS, DB
-from database import collection
+from variables import HINDUSTAN_TIMES_NDLS, TOI_NDLS, HINDU_NDLS
+from database import collection, DB
 from  datetime import datetime
 import time
 import sys
@@ -13,7 +13,8 @@ class Rss(object):
 	def __init__(self, src_name, rss_link):
 		self.src_name = src_name
 		self.rss_link = rss_link
-		self.mongo_collection = collection("Epoch")
+		self.mongo_collection = collection("Epoch")#This uses the collection method imported above which returns 
+							#collection obejct in case it exists or create if it doesnt
 
 	def __updating_epoch_collection(self, epoch):
 		"""
@@ -22,7 +23,7 @@ class Rss(object):
 	
 		"""
 		self.mongo_collection.update({"name": self.src_name},{"$set": {"epoch": epoch}}, upsert = True)
-		sys.exit(1)
+		return
 
 
 	def __get_last_epoch(self):
