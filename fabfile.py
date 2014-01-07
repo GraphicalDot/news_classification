@@ -37,6 +37,7 @@ def virtual_env():
 		with cd("/home/ubuntu/VirtualEnvironment"):
 			run("sudo apt-get install -y git")
 			with prefix("source bin/activate"):
+				run("sudo mkdir /applogs")
 				run("git clone https://github.com/kaali-python/news_classification.git")
 
 
@@ -88,13 +89,13 @@ def update_mongo_conf():
 
 def supervisord():
 	with prefix("cd /home/ubuntu/VirtualEnvironment &&source bin/activate && cd news_classification"):
-		run("echo_supervisord_conf > /etc/supervisord.conf")
+		run("sudo echo_supervisord_conf > /etc/supervisord.conf")
 	execute("update_supervisord_conf")
 
 def update_supervisord_conf():
 	with prefix("cd /home/ubuntu/VirtualEnvironment &&source bin/activate && cd news_classification/configs"):
 		run("sudo cp supervisord.conf /etc/supervisord.conf")
-		run("supervisorctl restart")
+		run("sudo supervisorctl restart")
 
 
 def supervisorctl(process):
@@ -102,15 +103,17 @@ def supervisorctl(process):
 	This method restart the process
 	"""
 	with prefix("cd /home/ubuntu/VirtualEnvironment &&source bin/activate && cd news_classification"):
-		run("supervisorctl restart %s"%(process))
+		run("sudo supervisorctl restart %s"%(process))
 
-def supervisor_status():
+def supervisord_status():
 	"""
 	This method outputs the status of the process being run by supervisord
 	"""
-	with prefix("cd /home/ubuntu/VirtualEnvironment &&source bin/activate && cd news_classification"):
-		run("supervisorctl status")
-
+	print(_green("Getting status of the process running through supervisord..."))	
+	with hide("warnings"):
+		with prefix("cd /home/ubuntu/VirtualEnvironment &&source bin/activate && cd news_classification"):
+			run("sudo supervisorctl status")
+		disconnect_all()
 
 def update():
 	print(_green("Connecting to EC2 Instance..."))	

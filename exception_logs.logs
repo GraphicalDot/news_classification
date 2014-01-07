@@ -1,1 +1,0 @@
-2013-01-06 15:21:24,655 ERROR: argument of type 'NoneType' is not iterable custom_logging [in /home/k/Programs/python/news_classification/custom_logging.py:19]
