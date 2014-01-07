@@ -1,37 +1,20 @@
 #!/bin/bash
 
 
-echo -e "\n\nUpdating ubuntu packages list\n\n"
-sudo apt-get -y update
-
-echo -e "\n\nUpgrading packages\n\n"
-sudo apt-get -y upgrade
-
 echo -e "\n\nMaking application logs directory which will have the related logs for all the applications running\n\n"
 sudo mkdir /applogs
-
-echo -e "\n\nInstalling ipython\n\n"
-sudo apt-get install -y ipython
-
-echo -e "\n\nInstalling python pip\n\n"
-sudo apt-get install -y python-pip
 
 echo -e "\n\nInstalling python easy_install tool\n\n"
 sudo apt-get install -y python-setuptools python-dev build-essential
 
 
 echo -e "\n\nInstalling python devlopers tools\n\n"
-sudo apt-get install -y libevent-dev
-sudo apt-get install -y python-all-dev
 sudo easy_install greenlet
 sudo easy_install gevent
 
 
 echo -e "\n\nInstalling flask\n\n"
 sudo pip install Flask
-
-
-
 
 
 echo -e "\n\nInstalling mongodb\n\n"
@@ -42,7 +25,6 @@ sudo apt-get install -y mongodb-10gen
 
 echo -e "Installing python application interface for using mongodb"
 pip install pymongo
-
 
 
 echo -e  "\n\nInstalling python reqeusts module to use http protocols\n\n"
