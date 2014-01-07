@@ -17,14 +17,17 @@ env.key_filename = "/home/k/Programs/PemFiles/sanil_news.pem"
 This is the file which remotely makes an ec2 instance for the use of this repository
 """
 
-def AD_virtuaEnv():
+def before_env():
 	run("sudo apt-get upgrade")
 	run("sudo apt-get update")
-	run("sudo apt-get install -y libevent-dev")
-	run("sudo apt-get install -y python-all-dev")
 	run("sudo apt-get install -y python-pip")
-	run("sudo apt-get install -y ipython")
-	run("sudo apt-get install -y python-setuptools python-dev build-essential")
+
+def after_env():
+	with prefix("cd /home/ubuntu/VirtualEnvironment &&source bin/activate && cd news_classification"):
+		run("sudo apt-get install -y libevent-dev")
+		run("sudo apt-get install -y python-all-dev")
+		run("sudo apt-get install -y ipython")
+		run("sudo apt-get install -y python-setuptools python-dev build-essential")
 
 
 def virtual_env():
@@ -45,12 +48,6 @@ def updating_git():
 	with prefix("cd /home/ubuntu/VirtualEnvironment &&source bin/activate && cd news_classification"):
 		run("git pull origin master")
 
-def installation_script():
-	with prefix("cd /home/ubuntu/VirtualEnvironment &&source bin/activate && cd news_classification"):
-		run("sudo chmod 755 installation.sh")
-		run("./installation.sh")
-
-
 
 def nginx():
 	"""
@@ -60,13 +57,17 @@ def nginx():
 	with prefix("cd /home/ubuntu/VirtualEnvironment &&source bin/activate && cd news_classification"):
 		run("sudo apt-get install -y nginx")
 	execute(update_nginx_conf)
-	run("sudo service nginx restart")
 
 
 
 def update_nginx_conf():
+	"""
+	This method updates the nginx configuration which if updated in the git repository.
+	Then restarts the nginx server
+	"""
 	with prefix("cd /home/ubuntu/VirtualEnvironment &&source bin/activate && cd news_classification/configs"):
 		run("sudo cp nginx.conf /etc/nginx/sites-enabled/default")
+		run("sudo service nginx restart")
 
 
 
@@ -78,16 +79,38 @@ def mongo():
 		run("sudo apt-get update")
 		run("sudo apt-get install -y mongodb-10gen")
 	execute(update_mongo_conf)
-	run("sudo service mongodb restart")
 
 def update_mongo_conf():
 	with prefix("cd /home/ubuntu/VirtualEnvironment &&source bin/activate && cd news_classification/configs"):
 		run("sudo cp mongodb.conf /etc/mongodb.conf")
+		run("sudo service mongodb restart")
+	
+
+def supervisord():
+	with prefix("cd /home/ubuntu/VirtualEnvironment &&source bin/activate && cd news_classification"):
+		run("echo_supervisord_conf > /etc/supervisord.conf")
+	execute("update_supervisord_conf")
+
+def update_supervisord_conf():
+	with prefix("cd /home/ubuntu/VirtualEnvironment &&source bin/activate && cd news_classification/configs"):
+		run("sudo cp supervisord.conf /etc/supervisord.conf")
+		run("supervisorctl restart")
 
 
+def supervisorctl(process):
+	"""
+	This method restart the process
+	"""
+	with prefix("cd /home/ubuntu/VirtualEnvironment &&source bin/activate && cd news_classification"):
+		run("supervisorctl restart %s"%(process))
 
-def supervisor():
-	pass
+def supervisor_status():
+	"""
+	This method outputs the status of the process being run by supervisord
+	"""
+	with prefix("cd /home/ubuntu/VirtualEnvironment &&source bin/activate && cd news_classification"):
+		run("supervisorctl status")
+
 
 def update():
 	print(_green("Connecting to EC2 Instance..."))	
@@ -100,9 +123,14 @@ def update():
 def deploy():
 	print(_green("Connecting to EC2 Instance..."))	
 	with hide("warnings"):
-	#	execute(AD_virtuaEnv)
-	#	execute(installing_requirements)
+		execute(before_env)
+		execute(virtual_env)
+		execute(after_env)
+		execute(installing_requirements)
+		execute(nginx)
 		execute(mongo)
+		execute(supervisord)
 		print(_yellow("...Disconnecting EC2 instance..."))
+		run("sudo reboot")
 		disconnect_all()
 
