@@ -4,6 +4,7 @@ from fabric.api import local, settings, prefix, abort, run, cd, env, require, hi
 from fabric.contrib.console import confirm
 from fabric.network import disconnect_all
 from fabric.colors import green as _green, yellow as _yellow
+from fabric.contrib.files import exists
 import os
 
 
@@ -37,8 +38,10 @@ def virtual_env():
 		with cd("/home/ubuntu/VirtualEnvironment"):
 			run("sudo apt-get install -y git")
 			with prefix("source bin/activate"):
-				run("sudo mkdir /applogs")
-				run("git clone https://github.com/kaali-python/news_classification.git")
+				if not exists("/applogs", use_sudo=True):
+					run("sudo mkdir /applogs")
+				if not exists("/home/ubuntu/VirtualEnvironment/news_classification", use_sudo=True):	
+					run("git clone https://github.com/kaali-python/news_classification.git")
 
 
 def installing_requirements():
