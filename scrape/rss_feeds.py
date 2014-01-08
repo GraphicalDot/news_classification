@@ -61,10 +61,11 @@ class Rss(object):
 		
 		#breaking list on the basis of the news stored in the pymongo collection already
 		updated = [item for item in data_sort if item.get("published_date") > self.__get_last_epoch()]
-		
+		print updated
 		#if the list is not empty, updating the pymongo collection with new epoch time
 		if updated:
 			self.__updating_epoch_collection(updated[0].get("published_date"))
+		
 		
 		return updated
 

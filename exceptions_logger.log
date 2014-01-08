@@ -1,0 +1,109 @@
+ERROR:root:Got exception in ht
+Traceback (most recent call last):
+  File "/home/k/Programs/python/news_classification/scrape/db_insertion.py", line 31, in ht
+    __data = hindustan_ndls_data()
+  File "/home/k/Programs/python/news_classification/scrape/full_text.py", line 28, in hindustan_ndls_data
+    data = R.ht_ndls_rss()
+  File "/home/k/Programs/python/news_classification/scrape/rss_feeds.py", line 74, in ht_ndls_rss
+    instance = Rss("HT_NDLS", HINDUSTAN_TIMES_NDLS)
+  File "/home/k/Programs/python/news_classification/scrape/rss_feeds.py", line 17, in __init__
+    self.mongo_collection = collection("Epoch")#This uses the collection method imported above which returns
+  File "/home/k/Programs/python/news_classification/scrape/database.py", line 26, in collection
+    except pymongo.errors.CollectionInvalid:
+NameError: global name 'pymongo' is not defined
+ERROR:Exceptions_Logs:global name 'hin_ndls_data' is not defined
+ERROR:Exceptions_Logs:global name 'pymongo' is not defined
+ERROR:root:Got exception in ht
+Traceback (most recent call last):
+  File "/home/k/Programs/python/news_classification/scrape/db_insertion.py", line 32, in ht
+    __data = hindustan_ndls_data()
+  File "/home/k/Programs/python/news_classification/scrape/full_text.py", line 28, in hindustan_ndls_data
+    data = R.ht_ndls_rss()
+  File "/home/k/Programs/python/news_classification/scrape/rss_feeds.py", line 74, in ht_ndls_rss
+    instance = Rss("HT_NDLS", HINDUSTAN_TIMES_NDLS)
+  File "/home/k/Programs/python/news_classification/scrape/rss_feeds.py", line 17, in __init__
+    self.mongo_collection = collection("Epoch")#This uses the collection method imported above which returns
+  File "/home/k/Programs/python/news_classification/scrape/database.py", line 26, in collection
+    except pymongo.errors.CollectionInvalid:
+NameError: global name 'pymongo' is not defined
+ERROR:Exceptions_Logs:global name 'hin_ndls_data' is not defined
+ERROR:Exceptions_Logs:global name 'pymongo' is not defined
+ERROR:root:Got exception in ht
+Traceback (most recent call last):
+  File "/home/k/Programs/python/news_classification/scrape/db_insertion.py", line 32, in ht
+    __data = hindustan_ndls_data()
+  File "/home/k/Programs/python/news_classification/scrape/full_text.py", line 28, in hindustan_ndls_data
+    data = R.ht_ndls_rss()
+  File "/home/k/Programs/python/news_classification/scrape/rss_feeds.py", line 74, in ht_ndls_rss
+    instance = Rss("HT_NDLS", HINDUSTAN_TIMES_NDLS)
+  File "/home/k/Programs/python/news_classification/scrape/rss_feeds.py", line 17, in __init__
+    self.mongo_collection = collection("Epoch")#This uses the collection method imported above which returns
+  File "/home/k/Programs/python/news_classification/scrape/database.py", line 26, in collection
+    except pymongo.errors.CollectionInvalid:
+NameError: global name 'pymongo' is not defined
+ERROR:Exceptions_Logs:global name 'hin_ndls_data' is not defined
+ERROR:Exceptions_Logs:global name 'pymongo' is not defined
+ERROR:root:Got exception in ht
+Traceback (most recent call last):
+  File "/home/k/Programs/python/news_classification/scrape/db_insertion.py", line 32, in ht
+    __data = hindustan_ndls_data()
+  File "/home/k/Programs/python/news_classification/scrape/full_text.py", line 28, in hindustan_ndls_data
+    data = R.ht_ndls_rss()
+  File "/home/k/Programs/python/news_classification/scrape/rss_feeds.py", line 74, in ht_ndls_rss
+    instance = Rss("HT_NDLS", HINDUSTAN_TIMES_NDLS)
+  File "/home/k/Programs/python/news_classification/scrape/rss_feeds.py", line 17, in __init__
+    self.mongo_collection = collection("Epoch")#This uses the collection method imported above which returns
+  File "/home/k/Programs/python/news_classification/scrape/database.py", line 26, in collection
+    except pymongo.errors.CollectionInvalid:
+NameError: global name 'pymongo' is not defined
+ERROR:Exceptions_Logs:global name 'hin_ndls_data' is not defined
+ERROR:Exceptions_Logs:global name 'pymongo' is not defined
+ERROR:root:Got exception in ht
+Traceback (most recent call last):
+  File "/home/k/Programs/python/news_classification/scrape/db_insertion.py", line 32, in ht
+    __data = hindustan_ndls_data()
+  File "/home/k/Programs/python/news_classification/scrape/full_text.py", line 28, in hindustan_ndls_data
+    data = R.ht_ndls_rss()
+  File "/home/k/Programs/python/news_classification/scrape/rss_feeds.py", line 74, in ht_ndls_rss
+    instance = Rss("HT_NDLS", HINDUSTAN_TIMES_NDLS)
+  File "/home/k/Programs/python/news_classification/scrape/rss_feeds.py", line 17, in __init__
+    self.mongo_collection = collection("Epoch")#This uses the collection method imported above which returns
+  File "/home/k/Programs/python/news_classification/scrape/database.py", line 26, in collection
+    except pymongo.errors.CollectionInvalid:
+NameError: global name 'pymongo' is not defined
+ERROR:Exceptions_Logs:global name 'hin_ndls_data' is not defined
+ERROR:Exceptions_Logs:global name 'pymongo' is not defined
+ERROR:root:Got exception in ht
+Traceback (most recent call last):
+  File "/home/k/Programs/python/news_classification/scrape/db_insertion.py", line 32, in ht
+    __data = hindustan_ndls_data()
+  File "/home/k/Programs/python/news_classification/scrape/full_text.py", line 28, in hindustan_ndls_data
+    data = R.ht_ndls_rss()
+  File "/home/k/Programs/python/news_classification/scrape/rss_feeds.py", line 74, in ht_ndls_rss
+    instance = Rss("HT_NDLS", HINDUSTAN_TIMES_NDLS)
+  File "/home/k/Programs/python/news_classification/scrape/rss_feeds.py", line 17, in __init__
+    self.mongo_collection = collection("Epoch")#This uses the collection method imported above which returns
+  File "/home/k/Programs/python/news_classification/scrape/database.py", line 26, in collection
+    except pymongo.errors.CollectionInvalid:
+NameError: global name 'pymongo' is not defined
+ERROR:Exceptions_Logs:global name 'hin_ndls_data' is not defined
+ERROR:Exceptions_Logs:global name 'pymongo' is not defined
+ERROR:root:Got exception in ht
+Traceback (most recent call last):
+  File "/home/k/Programs/python/news_classification/scrape/db_insertion.py", line 33, in ht
+    InsertDB.__insert_db(__data)
+TypeError: __insert_db() takes exactly 2 arguments (1 given)
+ERROR:root:Got exception in hin
+Traceback (most recent call last):
+  File "/home/k/Programs/python/news_classification/scrape/db_insertion.py", line 41, in hin
+    __data = hin_ndls_data()
+NameError: global name 'hin_ndls_data' is not defined
+ERROR:root:Got exception in toi
+Traceback (most recent call last):
+  File "/home/k/Programs/python/news_classification/scrape/db_insertion.py", line 52, in toi
+    __data = toi_ndls_data()
+  File "/home/k/Programs/python/news_classification/scrape/full_text.py", line 61, in toi_ndls_data
+    news.update(dict(full_text = extracting_text(news.get("link")), source="TOI_NDLS", scraped_epoch= time.time(), scraped_date=time.strftime("%d/%m/%Y")))
+  File "/home/k/Programs/python/news_classification/scrape/full_text.py", line 14, in extracting_text
+    time.sleep(5)
+KeyboardInterrupt

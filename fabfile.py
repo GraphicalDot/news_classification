@@ -13,7 +13,7 @@ env.use_ssh_config = True
 env.hosts = ["ec2-54-208-89-26.compute-1.amazonaws.com"]
 env.user = "ubuntu"
 env.key_filename = "/home/k/Programs/PemFiles/sanil_news.pem"
-
+env.warn_only = False
 
 """
 This is the file which remotely makes an ec2 instance for the use of this repository
@@ -154,12 +154,13 @@ def supervisord():
 def update_supervisord_conf():
 	"""
 	This method updates the supervisord configuration file available in the git repository.It then restarts the 
-	supervisorctl to update the configuration file.
+	supervisord to update the configuration file.
 
 	"""
 	with prefix("cd /home/ubuntu/VirtualEnvironment &&source bin/activate && cd news_classification/configs"):
-		run("sudo cp supervisord.conf /etc/supervisord.conf")
-		run("sudo supervisorctl restart")
+		with show("debug", "stdout", "stderr"):
+			run("sudo cp supervisord.conf /etc/supervisord.conf")
+			run("sudo supervisorctl reload")
 
 
 def supervisorctl(process):
@@ -200,6 +201,9 @@ def gunicorn_status():
 				with show("debug", "stdout", "stderr"):
 					run("sudo tail -n 50 /applogs/gunicorn_error.logs")
 
+
+def reboot():
+	run("sudo reboot")
 
 
 def status():

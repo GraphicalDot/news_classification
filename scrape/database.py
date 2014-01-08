@@ -4,7 +4,7 @@ This python file have the important database functions to be used while insertio
 
 """
 from pymongo import MongoClient
-
+import pymongo
 
 CONNECTION = MongoClient("localhost", 27017, w=1, j=True)
 DB = CONNECTION.news
