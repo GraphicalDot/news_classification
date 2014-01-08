@@ -102,10 +102,9 @@ def nginx_status():
 	    """
 	    Check if nginx is installed.
 	    """
-	    with settings(hide("running", "stdout", "stderr"), warn_only=True):
+	    with settings(hide("running", "stderr", "stdout")):
 	    	result = run('if ps aux | grep -v grep | grep -i "nginx"; then echo 1; else echo ""; fi')
-
-	    	if result == 1:
+	    	if result:
 			    print (_green("Nginx is running fine......................"))
 	    	else:
 			    print (_red("Nginx is not running ......................"))
@@ -116,7 +115,7 @@ def nginx_status():
 				    	run("sudo nginx -t")
 				    	run("sudo service nginx restart")
 				    	run("sudo tail -n 50 /applogs/nginx_error.logs")
-
+		return 
 
 
 def mongo():
@@ -191,7 +190,7 @@ def gunicorn_status():
 	"""
 	with settings(hide("running", "stdout", "stderr"), warn_only=True):
 		result = run('if ps aux | grep -v grep | grep -i "gunicorn"; then echo 1; else echo ""; fi')
-		if result == 1:
+		if result:
 			print (_green("Gunicorn is running fine......................"))
 		else:
 			print (_red("Gunicorn is not running ......................"))
