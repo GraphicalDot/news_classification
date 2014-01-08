@@ -1,27 +1,30 @@
 #!/usr/bin/env python
-# -*- coding: utf-8 -*-
 
 from __future__ import absolute_import 
 import logging
 from logging.handlers import RotatingFileHandler
-from variables import LOGGING_PATH
+import os
+LOGGING_PATH = os.path.dirname(os.path.realpath(__file__))
 
-def exceptions_logging(error):
+def exceptions_logger(error):
 	path = "%s/exception_logs.logs"%(LOGGING_PATH)
 	log = logging.getLogger("Exceptions_Logs")
 	handler = RotatingFileHandler(path, maxBytes=10000, backupCount=1)
-	
+				        
 	formatter = logging.Formatter('%(asctime)s %(levelname)s: %(message)s %(module)s [in %(pathname)s:%(lineno)d]')
-	
+						   
 	handler.setFormatter(formatter)
 	log.addHandler(handler)
 	log.error(error)
-	sys.exit(1)
+	return
 
 def app_logger(app):
+	path = "%s/flask_error_logs.logs"%(LOGGING_PATH)
 	my_logger = logging.getLogger('MyLogger')
 
-	handler = RotatingFileHandler(LOG_FILENAME, maxBytes=10000, backupCount=1)
+#	my_logger.setLevel(logging.DEBUG)
+
+	handler = RotatingFileHandler(path, maxBytes=10000, backupCount=1)
 	
 	formatter = logging.Formatter('%(asctime)s %(levelname)s: %(message)s %(module)s [in %(pathname)s:%(lineno)d]')
 	
@@ -34,6 +37,4 @@ def app_logger(app):
 	app.logger.debug('A value for debugging')
 	app.logger.warning('A warning occurred (%d apples)', 42)
 	app.logger.info("My App")
-	sys.exit(1)
-
-
+	return

@@ -6,7 +6,7 @@ This is the file responsible for actually inserting data in the database.
 
 from full_text import hindustan_ndls_data, hindu_ndls_data, toi_ndls_data
 from database import DB, collection
-from custom_logging import exceptions_logging
+from custom_logging import exceptions_logger
 
 class InsertDB(object):
 
@@ -23,7 +23,7 @@ class InsertDB(object):
 			__data = hindustan_ndls_data()
 			InsertDB.__insert_db(__data)
 		except Exception as error:
-			exceptions_logging(error)
+			exceptions_logger(error)
 			pass
 
 
@@ -34,7 +34,7 @@ class InsertDB(object):
 			InsertDB.__insert_db(__data)
 
 		except Exception as error:
-			exceptions_logging(error)
+			exceptions_logger(error)
 			pass
 
 
@@ -44,7 +44,7 @@ class InsertDB(object):
 			__data = toi_ndls_data()
 			InsertDB.__insert_db(__data)
 		except Exception as error:
-			exceptions_logging(error)
+			exceptions_logger(error)
 			pass
 
 

@@ -5,7 +5,7 @@ import goose
 import time
 import logging
 from rss_feeds import Rss as R
-from custom_logging import exceptions_logging
+from custom_logging import exceptions_logger
 _g_instance = goose.Goose()
 
 def extracting_text(link):
@@ -14,7 +14,7 @@ def extracting_text(link):
 		time.sleep(5)
 		return extract.cleaned_text
 	except Exception as e:
-		exceptions_logging(e)
+		exceptions_logger(e)
 
 def hindustan_ndls_data():
 	"""
