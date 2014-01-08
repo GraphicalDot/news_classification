@@ -1,10 +1,11 @@
 
 from __future__ import with_statement
-from fabric.api import local, settings, prefix, abort, run, cd, env, require, hide, execute
+from fabric.api import show, local, settings, prefix, abort, run, cd, env, require, hide, execute
 from fabric.contrib.console import confirm
 from fabric.network import disconnect_all
 from fabric.colors import green as _green, yellow as _yellow, red as _red
 from fabric.contrib.files import exists
+from fabric.utils import error
 import os
 
 
@@ -81,6 +82,8 @@ def nginx():
 	"""
 	with prefix("cd /home/ubuntu/VirtualEnvironment &&source bin/activate && cd news_classification"):
 		run("sudo apt-get install -y nginx")
+	with prefix("cd /home/ubuntu/VirtualEnvironment/news_classification/configs"):
+		run("sudo cp nginx.conf /etc/nginx/nginx.conf")
 	execute(update_nginx_conf)
 
 
@@ -91,9 +94,28 @@ def update_nginx_conf():
 	Then restarts the nginx server
 	"""
 	with prefix("cd /home/ubuntu/VirtualEnvironment &&source bin/activate && cd news_classification/configs"):
-		run("sudo cp nginx.conf /etc/nginx/sites-enabled/default")
+		run("sudo cp nginx_default.conf /etc/nginx/sites-enabled/default")
 		run("sudo service nginx restart")
 
+
+def nginx_status():
+	    """
+	    Check if nginx is installed.
+	    """
+	    with settings(hide("running", "stdout", "stderr"), warn_only=True):
+	    	result = run('if ps aux | grep -v grep | grep -i "nginx"; then echo 1; else echo ""; fi')
+
+	    	if result == 1:
+			    print (_green("Nginx is running fine......................"))
+	    	else:
+			    print (_red("Nginx is not running ......................"))
+			    confirmation = confirm("Do you want to trouble shoot here??", default=True)
+			    if confirmation:
+				    print (_green("Checking nginx configuration file"))
+				    with show("debug", "stdout", "stderr"):
+				    	run("sudo nginx -t")
+				    	run("sudo service nginx restart")
+				    	run("sudo tail -n 50 /applogs/nginx_error.logs")
 
 
 
@@ -156,20 +178,11 @@ def supervisord_status():
 	with hide("warnings"):
 		with prefix("cd /home/ubuntu/VirtualEnvironment &&source bin/activate && cd news_classification"):
 			run("sudo supervisorctl status")
-		disconnect_all()
-
-
-def nginx_status():
-	    """
-	    Check if nginx is installed.
-	    """
-	    with settings(hide("running", "stdout", "stderr"), warn_only=True):
-	    	result = run('if ps aux | grep -v grep | grep -i "nginx"; then echo 1; else echo ""; fi')
-
-	    	if result == 1:
-			    print (_green("Nginx is running fine......................"))
-	    	else:
-			    print (_red("Nginx is not running ......................"))
+		
+		confirmation = confirm("Do you want to trouble shoot here??", default=True)
+		if confirmation:
+			print (_green("Ouputting supervisor logs"))
+			run("sudo tail -n 50 /applogs/supervisord.log")
 
 
 def gunicorn_status():
@@ -182,16 +195,21 @@ def gunicorn_status():
 			print (_green("Gunicorn is running fine......................"))
 		else:
 			print (_red("Gunicorn is not running ......................"))
+			confirmation = confirm("Do you want to trouble shoot here??", default=True)
+			if confirmation:
+				print (_green("Ouputting gunicorn error logs"))
+				with show("debug", "stdout", "stderr"):
+					run("sudo tail -n 50 /applogs/gunicorn_error.logs")
 
 
 
 def status():
 	print(_green("Connecting to EC2 Instance..."))	
 	with hide("warnings"):
+		run("free -m")
 		execute(supervisord_status)
 		execute(nginx_status)
 		execute(gunicorn_status)
-		run("sudo nginx -t")
 		print(_yellow("...Disconnecting EC2 instance..."))
 		disconnect_all()
 
