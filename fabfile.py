@@ -9,7 +9,7 @@ import os
 
 
 env.use_ssh_config = True
-env.hosts = ["ec2-54-208-89-26.compute-1.amazonaws.com"]
+env.hosts = ["ec2-54-208-143-49.compute-1.amazonaws.com"]
 env.user = "ubuntu"
 env.key_filename = "/home/k/Programs/PemFiles/sanil_news.pem"
 env.warn_only = False
@@ -54,6 +54,7 @@ def virtual_env():
 			with prefix("source bin/activate"):
 				if not exists("/applogs", use_sudo=True):
 					run("sudo mkdir /applogs")
+					run("sudo chown -R ubuntu:ubuntu /applogs/")
 				if not exists("/home/ubuntu/VirtualEnvironment/news_classification", use_sudo=True):	
 					run("git clone https://github.com/kaali-python/news_classification.git")
 
@@ -128,27 +129,33 @@ def mongo():
 		run("echo -e 'deb http://downloads-distro.mongodb.org/repo/ubuntu-upstart dist 10gen' | sudo tee /etc/apt/sources.list.d/mongodb.list")
 		run("sudo apt-get update")
 		run("sudo apt-get install -y mongodb-10gen")
-	execute(update_mongo_conf)
 
 
-def update_mongo_conf():
-	"""
-	This method updates the mongodb configuration file available in the git repository.It after replacement, restarts
-	the mongodb engine to update the configuration file.
 
-	"""
-	with prefix("cd /home/ubuntu/VirtualEnvironment &&source bin/activate && cd news_classification/configs"):
-		run("sudo cp mongodb.conf /etc/mongodb.conf")
-		run("sudo service mongodb restart")
-	
+def mongo_status():
+	    """
+	    Check if nginx is installed.
+	    """
+	    with settings(hide("running", "stderr", "stdout")):
+	    	result = run('if ps aux | grep -v grep | grep -i "mongodb"; then echo 1; else echo ""; fi')
+	    	if result:
+			    print (_green("Mongodb is running fine......................"))
+	    	else:
+			    print (_red("Mongodb is not running ......................"))
+			    confirmation = confirm("Do you want to trouble shoot here??it will delete mongo.lock file", default=True)
+			    if confirmation:
+					run("sudo rm -rf  /var/lib/mongodb/mongod.lock ")
+				    	run("sudo service mongodb restart")
+		return 
+
+
 
 def supervisord():
 	"""
 	It updates the supervisord configuration file which has already been installed by the pip -r requirements.txt
 	"""
 	with prefix("cd /home/ubuntu/VirtualEnvironment &&source bin/activate && cd news_classification"):
-		run("sudo echo_supervisord_conf > /etc/supervisord.conf")
-	execute("update_supervisord_conf")
+		run("sudo /usr/local/bin/supervisord -c configs/supervisord.conf")
 
 def update_supervisord_conf():
 	"""
