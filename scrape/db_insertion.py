@@ -16,13 +16,13 @@ LOG_FILENAME = 'exceptions_logger.log'
 logging.basicConfig(filename=LOG_FILENAME, level=logging.DEBUG,)
 
 
-class InsertDB(object):
+class DBInsert(object):
 
 
 	@staticmethod
-	def __insert_db(self, data):
+	def __db_insert(data):
 		mongo_collection = collection("News")
-		mongo_collection.insert(post, upsert=true)
+		[mongo_collection.insert(post, upsert=True) for post in data]
 		return
 
 
@@ -30,16 +30,18 @@ class InsertDB(object):
 	def ht():
 		try:
 			__data = hindustan_ndls_data()
-			InsertDB.__insert_db(__data)
+			DBInsert.__db_insert(__data)
+			return __data
 		except:
 			logging.exception('Got exception in %s'%(inspect.stack()[0][3]))
 			pass
 
+
 	@staticmethod
 	def hin():
 		try:
-			__data = hin_ndls_data()
-			InsertDB.__insert_db(__data)
+			__data = hindu_ndls_data()
+			DBInsert.__db_insert(__data)
 
 		except:
 			logging.exception('Got exception in %s'%(inspect.stack()[0][3]))
@@ -50,11 +52,10 @@ class InsertDB(object):
 	def toi():
 		try:
 			__data = toi_ndls_data()
-			InsertDB.__insert_db(__data)
+			DBInsert.__db_insert(__data)
 		except:
 			logging.exception('Got exception in %s'%(inspect.stack()[0][3]))
 			pass
-
 
 
 

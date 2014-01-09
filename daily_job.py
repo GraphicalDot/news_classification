@@ -1,9 +1,9 @@
 #!/usr/bin/env python
 
-from scrape import InsertDB
+from scrape import DBInsert
 
 if __name__ == "__main__":
-	InsertDB.ht()
-	InsertDB.hin()
-	InsertDB.toi()
+	DBInsert.ht()
+	DBInsert.hin()
+	DBInsert.toi()
 	

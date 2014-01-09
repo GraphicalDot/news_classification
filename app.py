@@ -4,22 +4,13 @@ from flask import Flask, request, jsonify
 from flask.ext.restful import Resource, Api
 from flask.ext.restful import reqparse
 import json
-import imp
 from scrape import app_logger
 
-"""
-path = "%s/scrape"%os.path.dirname(os.path.realpath(__file__))
-print path
-sys.path.append(path)
-
-from custom_logging import app_logger
-"""
 app = Flask(__name__)
-app.config.from_pyfile('configs/flask_config.py')
+#app.config.from_pyfile('configs/flask_config.py')
 api = Api(app)
 
-
-tag_name_parser = reqparse.RequestParser()
+ht_name_parser = reqparse.RequestParser()
 tag_name_parser.add_argument('tag', type=str, required=True, help="Tag nname should be provided in the arguments", location="args")
 
 
@@ -29,7 +20,6 @@ image_parser.add_argument('size', type=str, location="args")
 image_parser.add_argument('count', type=str, location="args")
 
 
-"""
 parser = reqparse.RequestParser()
 parser.add_argument('rate', type=int, help='Rate cannot be converted')
 parser.add_argument('name', type=str)
@@ -103,4 +93,7 @@ api.add_resource(ImagesByTag, '/ImagesByTag')
 """		
 		
 if __name__ == "__main__":
-	app_logger(app)
+#	app_logger(app)
+	print "kaali"
+	app.run(host="localhost",  port= 5000, debug=True)
+

@@ -107,3 +107,39 @@ Traceback (most recent call last):
   File "/home/k/Programs/python/news_classification/scrape/full_text.py", line 14, in extracting_text
     time.sleep(5)
 KeyboardInterrupt
+ERROR:__main__:An error occurred
+DEBUG:__main__:A value for debugging
+WARNING:__main__:A warning occurred (42 apples)
+INFO:__main__:My App
+INFO:werkzeug: * Running on http://127.0.0.1:5000/
+INFO:werkzeug: * Restarting with reloader
+INFO:werkzeug: * Running on http://127.0.0.1:5000/
+INFO:werkzeug: * Restarting with reloader
+INFO:werkzeug: * Running on http://127.0.0.1:5000/
+INFO:werkzeug: * Restarting with reloader
+INFO:werkzeug: * Running on http://localhost:5000/
+INFO:werkzeug: * Restarting with reloader
+INFO:werkzeug: * Running on http://localhost:5000/
+INFO:werkzeug: * Restarting with reloader
+INFO:werkzeug: * Running on http://localhost:5000/
+INFO:werkzeug: * Running on http://localhost:5000/
+INFO:werkzeug: * Restarting with reloader
+INFO:werkzeug: * Running on http://localhost:5000/
+INFO:werkzeug: * Restarting with reloader
+INFO:werkzeug: * Running on http://localhost:5000/
+INFO:werkzeug: * Restarting with reloader
+ERROR:root:Got exception in ht
+Traceback (most recent call last):
+  File "/home/k/Programs/python/news_classification/scrape/db_insertion.py", line 33, in ht
+    InsertDB.__insert_db(__data)
+TypeError: __insert_db() takes exactly 2 arguments (1 given)
+ERROR:root:Got exception in hin
+Traceback (most recent call last):
+  File "/home/k/Programs/python/news_classification/scrape/db_insertion.py", line 41, in hin
+    __data = hin_ndls_data()
+NameError: global name 'hin_ndls_data' is not defined
+ERROR:root:Got exception in toi
+Traceback (most recent call last):
+  File "/home/k/Programs/python/news_classification/scrape/db_insertion.py", line 53, in toi
+    InsertDB.__insert_db(__data)
+TypeError: __insert_db() takes exactly 2 arguments (1 given)

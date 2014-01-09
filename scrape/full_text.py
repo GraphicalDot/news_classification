@@ -11,9 +11,10 @@ _g_instance = goose.Goose()
 def extracting_text(link):
 	try:
 		extract = _g_instance.extract(link)
-		time.sleep(5)
+#		time.sleep(5)
 		return extract.cleaned_text
 	except Exception as e:
+		print "exception in extracting_text with goose"
 		exceptions_logger(e)
 
 def hindustan_ndls_data():
@@ -41,7 +42,7 @@ def hindu_ndls_data():
 	4. scraped_date, The human readable time foramt on which the data was scraped
 	"""
 	data = R.hin_ndls_rss()
-	for news in data[0:1]:
+	for news in data:
 		news.update(dict(full_text = extracting_text(news.get("link")), source="HIN_NDLS", scraped_epoch= time.time(), scraped_date=time.strftime("%d/%m/%Y")))
 	return data
 

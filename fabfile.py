@@ -54,7 +54,7 @@ def virtual_env():
 			with prefix("source bin/activate"):
 				if not exists("/applogs", use_sudo=True):
 					run("sudo mkdir /applogs")
-					run("sudo chown -R ubuntu:ubuntu /applogs/")
+					run("sudo chown -R ubuntu:ubuntu /applogs")
 				if not exists("/home/ubuntu/VirtualEnvironment/news_classification", use_sudo=True):	
 					run("git clone https://github.com/kaali-python/news_classification.git")
 
@@ -154,8 +154,10 @@ def supervisord():
 	"""
 	It updates the supervisord configuration file which has already been installed by the pip -r requirements.txt
 	"""
-	with prefix("cd /home/ubuntu/VirtualEnvironment &&source bin/activate && cd news_classification"):
-		run("sudo /usr/local/bin/supervisord -c configs/supervisord.conf")
+	with settings(user="ubuntu"):
+		with prefix("cd /home/ubuntu/VirtualEnvironment &&source bin/activate && cd news_classification"):
+			run("sudo cp configs/supervisord.conf /etc/supervisord.conf")
+			run("sudo supervisorctl reload")
 
 def update_supervisord_conf():
 	"""

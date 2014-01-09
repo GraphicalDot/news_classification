@@ -1,0 +1,45 @@
+ERROR:root:Got exception in hin
+Traceback (most recent call last):
+  File "db_insertion.py", line 41, in hin
+    __data = hin_ndls_data()
+NameError: global name 'hin_ndls_data' is not defined
+ERROR:root:Got exception in ht
+Traceback (most recent call last):
+  File "db_insertion.py", line 33, in ht
+    InsertDB.__insert_db(__data)
+TypeError: __insert_db() takes exactly 2 arguments (1 given)
+ERROR:root:Got exception in ht
+Traceback (most recent call last):
+  File "db_insertion.py", line 33, in ht
+    InsertDB.__insert_db(__data)
+TypeError: __insert_db() takes exactly 2 arguments (1 given)
+ERROR:root:Got exception in ht
+Traceback (most recent call last):
+  File "db_insertion.py", line 33, in ht
+    InsertDB.__insert_db(__data)
+TypeError: __insert_db() takes exactly 2 arguments (1 given)
+ERROR:root:Got exception in ht
+Traceback (most recent call last):
+  File "db_insertion.py", line 33, in ht
+    InsertDB.__insert_db(__data)
+TypeError: __insert_db() takes exactly 2 arguments (1 given)
+ERROR:root:Got exception in ht
+Traceback (most recent call last):
+  File "db_insertion.py", line 33, in ht
+    InsertDB.__insert_db(__data)
+TypeError: __insert_db() takes exactly 2 arguments (1 given)
+ERROR:root:Got exception in hin
+Traceback (most recent call last):
+  File "db_insertion.py", line 43, in hin
+    __data = hin_ndls_data()
+NameError: global name 'hin_ndls_data' is not defined
+ERROR:root:Got exception in hin
+Traceback (most recent call last):
+  File "db_insertion.py", line 44, in hin
+    InsertDB.__insert_db(__data)
+NameError: global name 'InsertDB' is not defined
+ERROR:root:Got exception in hin
+Traceback (most recent call last):
+  File "db_insertion.py", line 44, in hin
+    DBInsert.__insert_db(__data)
+AttributeError: type object 'DBInsert' has no attribute '_DBInsert__insert_db'
