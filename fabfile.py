@@ -1,4 +1,3 @@
-
 from __future__ import with_statement
 from fabric.api import show, local, settings, prefix, abort, run, cd, env, require, hide, execute
 from fabric.contrib.console import confirm
@@ -175,14 +174,13 @@ def supervisord_status():
 	This method outputs the status of the process being run by supervisord on the remote server.
 	"""
 	print(_green("Getting status of the process running through supervisord..."))	
-	with hide("warnings"):
-		with prefix("cd /home/ubuntu/VirtualEnvironment &&source bin/activate && cd news_classification"):
-			run("sudo supervisorctl status")
+	with prefix("cd /home/ubuntu/VirtualEnvironment &&source bin/activate && cd news_classification"):
+		run("sudo supervisorctl status")
 		
-		confirmation = confirm("Do you want to trouble shoot here??", default=True)
-		if confirmation:
-			print (_green("Ouputting supervisor logs"))
-			run("sudo tail -n 50 /applogs/supervisord.log")
+	confirmation = confirm("Do you want to trouble shoot here??", default=True)
+	if confirmation:
+		print (_green("Ouputting supervisor logs"))
+		run("sudo tail -n 50 /applogs/supervisord.log")
 
 
 def gunicorn_status():
@@ -208,42 +206,39 @@ def reboot():
 
 def status():
 	print(_green("Connecting to EC2 Instance..."))	
-	with hide("warnings"):
-		run("free -m")
-		execute(supervisord_status)
-		execute(nginx_status)
-		execute(gunicorn_status)
-		print(_yellow("...Disconnecting EC2 instance..."))
-		disconnect_all()
+	run("free -m")
+	execute(supervisord_status)
+	execute(nginx_status)
+	execute(gunicorn_status)
+	print(_yellow("...Disconnecting EC2 instance..."))
+	disconnect_all()
 
 
 
 def update():
 	print(_green("Connecting to EC2 Instance..."))	
-	with hide("warnings"):
-		execute(update_git)
-		execute(update_nginx_conf)
-		execute(update_supervisord_conf)
-		execute(nginx_status)
-		execute(gunicorn_status)
+	execute(update_git)
+	execute(update_nginx_conf)
+	execute(update_supervisord_conf)
+	execute(nginx_status)
+	execute(gunicorn_status)
 		
-		print(_yellow("...Disconnecting EC2 instance..."))
-		disconnect_all()
+	print(_yellow("...Disconnecting EC2 instance..."))
+	disconnect_all()
 
 
 
 
 def deploy():
 	print(_green("Connecting to EC2 Instance..."))	
-	with hide("warnings"):
-		execute(before_env)
-		execute(virtual_env)
-		execute(after_env)
-		execute(installing_requirements)
-		execute(nginx)
-		execute(mongo)
-		execute(supervisord)
-		print(_yellow("...Disconnecting EC2 instance..."))
-		run("sudo reboot")
-		disconnect_all()
+	execute(before_env)
+	execute(virtual_env)
+	execute(after_env)
+	execute(installing_requirements)
+	execute(nginx)
+	execute(mongo)
+	execute(supervisord)
+	print(_yellow("...Disconnecting EC2 instance..."))
+	run("sudo reboot")
+	disconnect_all()
 
