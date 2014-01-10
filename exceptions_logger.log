@@ -143,3 +143,759 @@ Traceback (most recent call last):
   File "/home/k/Programs/python/news_classification/scrape/db_insertion.py", line 53, in toi
     InsertDB.__insert_db(__data)
 TypeError: __insert_db() takes exactly 2 arguments (1 given)
+INFO:werkzeug: * Running on http://localhost:5000/
+INFO:werkzeug: * Restarting with reloader
+INFO:werkzeug:127.0.0.1 - - [10/Jan/2014 23:52:00] "GET /news HTTP/1.1" 400 -
+INFO:werkzeug:127.0.0.1 - - [10/Jan/2014 23:52:01] "GET /favicon.ico HTTP/1.1" 404 -
+INFO:werkzeug:127.0.0.1 - - [10/Jan/2014 23:52:01] "GET /favicon.ico HTTP/1.1" 404 -
+INFO:werkzeug: * Running on http://localhost:5000/
+INFO:werkzeug: * Restarting with reloader
+INFO:werkzeug:127.0.0.1 - - [10/Jan/2014 23:52:45] "GET /news HTTP/1.1" 400 -
+INFO:werkzeug:127.0.0.1 - - [10/Jan/2014 23:52:47] "GET /news HTTP/1.1" 400 -
+INFO:werkzeug:127.0.0.1 - - [10/Jan/2014 23:52:47] "GET /news HTTP/1.1" 400 -
+INFO:werkzeug:127.0.0.1 - - [10/Jan/2014 23:52:48] "GET /news HTTP/1.1" 400 -
+INFO:werkzeug: * Running on http://localhost:5000/
+INFO:werkzeug: * Restarting with reloader
+INFO:werkzeug: * Running on http://127.0.0.1:5000/
+INFO:werkzeug: * Restarting with reloader
+INFO:werkzeug: * Running on http://127.0.0.1:5000/
+INFO:werkzeug: * Restarting with reloader
+INFO:werkzeug: * Running on http://127.0.0.1:5000/
+INFO:werkzeug: * Restarting with reloader
+INFO:werkzeug:127.0.0.1 - - [10/Jan/2014 23:56:53] "GET /news?skip=0 HTTP/1.1" 200 -
+INFO:werkzeug: * Detected change in './app.py', reloading
+INFO:werkzeug: * Restarting with reloader
+INFO:werkzeug:127.0.0.1 - - [10/Jan/2014 23:59:09] "GET /news?skip=0 HTTP/1.1" 200 -
+ERROR:__main__:Internal Error
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1475, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1461, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/usr/local/lib/python2.7/dist-packages/flask_restful/__init__.py", line 252, in wrapper
+    resp = resource(*args, **kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/flask/views.py", line 84, in view
+    return self.dispatch_request(*args, **kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/flask_restful/__init__.py", line 332, in dispatch_request
+    resp = meth(*args, **kwargs)
+  File "./app.py", line 30, in get
+    return json.dumps(NewsData.data_by_source(args))
+TypeError: data_by_source() takes at least 2 arguments (1 given)
+INFO:werkzeug:127.0.0.1 - - [10/Jan/2014 23:59:44] "GET /news?source=HT_NDLS&skip=0 HTTP/1.1" 500 -
+INFO:werkzeug: * Detected change in '/home/k/Programs/python/news_classification/helpers.py', reloading
+INFO:werkzeug: * Restarting with reloader
+ERROR:__main__:Internal Error
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1475, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1461, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/usr/local/lib/python2.7/dist-packages/flask_restful/__init__.py", line 252, in wrapper
+    resp = resource(*args, **kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/flask/views.py", line 84, in view
+    return self.dispatch_request(*args, **kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/flask_restful/__init__.py", line 332, in dispatch_request
+    resp = meth(*args, **kwargs)
+  File "./app.py", line 30, in get
+    return json.dumps(NewsData.data_by_source(args))
+TypeError: data_by_source() takes exactly 0 arguments (1 given)
+INFO:werkzeug:127.0.0.1 - - [11/Jan/2014 00:00:31] "GET /news?source=HT_NDLS&skip=0 HTTP/1.1" 500 -
+INFO:werkzeug: * Detected change in '/home/k/Programs/python/news_classification/helpers.py', reloading
+INFO:werkzeug: * Restarting with reloader
+INFO:werkzeug: * Detected change in './app.py', reloading
+INFO:werkzeug: * Restarting with reloader
+ERROR:__main__:Internal Error
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1475, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1461, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/usr/local/lib/python2.7/dist-packages/flask_restful/__init__.py", line 252, in wrapper
+    resp = resource(*args, **kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/flask/views.py", line 84, in view
+    return self.dispatch_request(*args, **kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/flask_restful/__init__.py", line 332, in dispatch_request
+    resp = meth(*args, **kwargs)
+  File "./app.py", line 30, in get
+    return json.dumps(NewsData.data_by_source(source=args.get("source"), skip=args.get("skip"), count=args.get("count") ))
+  File "/home/k/Programs/python/news_classification/helpers.py", line 58, in data_by_source
+    data = [post for post in collection.find({"source": source}, fields=fields, sort =[("scraped_epoch", 1)], skip=skip)]
+  File "/usr/local/lib/python2.7/dist-packages/pymongo/collection.py", line 751, in find
+    return Cursor(self, *args, **kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/pymongo/cursor.py", line 91, in __init__
+    raise TypeError("skip must be an instance of int")
+TypeError: skip must be an instance of int
+INFO:werkzeug:127.0.0.1 - - [11/Jan/2014 00:04:25] "GET /news?source=HT_NDLS&skip=0 HTTP/1.1" 500 -
+INFO:werkzeug: * Detected change in './app.py', reloading
+INFO:werkzeug: * Restarting with reloader
+INFO:werkzeug:127.0.0.1 - - [11/Jan/2014 00:04:52] "GET /news?source=HT_NDLS&skip=0 HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [11/Jan/2014 00:05:06] "GET /news?source=HT_NDLS&skip=40 HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [11/Jan/2014 00:05:09] "GET /news?source=HT_NDLS&skip=20 HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [11/Jan/2014 00:05:13] "GET /news?source=HT_NDLS&skip=10 HTTP/1.1" 200 -
+ERROR:__main__:Internal Error
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1475, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1461, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/usr/local/lib/python2.7/dist-packages/flask_restful/__init__.py", line 252, in wrapper
+    resp = resource(*args, **kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/flask/views.py", line 84, in view
+    return self.dispatch_request(*args, **kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/flask_restful/__init__.py", line 332, in dispatch_request
+    resp = meth(*args, **kwargs)
+  File "./app.py", line 30, in get
+    return json.dumps(NewsData.data_by_source(source=args.get("source"), skip=args.get("skip"), count=args.get("count") ))
+  File "/home/k/Programs/python/news_classification/helpers.py", line 53, in data_by_source
+    data = [post for post in collection.find({"source": source}, fields=fields, sort =[("scraped_epoch", 1)], limit=count, skip=skip)]
+  File "/usr/local/lib/python2.7/dist-packages/pymongo/collection.py", line 751, in find
+    return Cursor(self, *args, **kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/pymongo/cursor.py", line 93, in __init__
+    raise TypeError("limit must be an instance of int")
+TypeError: limit must be an instance of int
+INFO:werkzeug:127.0.0.1 - - [11/Jan/2014 00:05:27] "GET /news?source=HT_NDLS&skip=10&count=1 HTTP/1.1" 500 -
+INFO:werkzeug: * Detected change in './app.py', reloading
+INFO:werkzeug: * Restarting with reloader
+INFO:werkzeug:127.0.0.1 - - [11/Jan/2014 00:05:40] "GET /news?source=HT_NDLS&skip=10&count=1 HTTP/1.1" 200 -
+INFO:werkzeug: * Detected change in './app.py', reloading
+INFO:werkzeug: * Restarting with reloader
+INFO:werkzeug: * Detected change in './app.py', reloading
+INFO:werkzeug: * Restarting with reloader
+INFO:werkzeug:127.0.0.1 - - [11/Jan/2014 00:09:37] "GET /news?published_date=HT_NDLS&skip=10&count=1 HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [11/Jan/2014 00:09:53] "GET /news?published_date=10%20jan%202014&skip=10&count=1 HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [11/Jan/2014 00:10:07] "GET /news?skip=10&count=1 HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [11/Jan/2014 00:19:55] "GET /news?skip=10&count=10 HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [11/Jan/2014 00:20:01] "GET /news?skip=10&count=10 HTTP/1.1" 200 -
+INFO:werkzeug: * Detected change in './app.py', reloading
+INFO:werkzeug: * Restarting with reloader
+ERROR:__main__:Internal Error
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1475, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1461, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/usr/local/lib/python2.7/dist-packages/flask_restful/__init__.py", line 252, in wrapper
+    resp = resource(*args, **kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/flask/views.py", line 84, in view
+    return self.dispatch_request(*args, **kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/flask_restful/__init__.py", line 332, in dispatch_request
+    resp = meth(*args, **kwargs)
+  File "./app.py", line 64, in get
+    return jsonify(NewsData.without_tag(skip=args.get("skip"), count=args.get("count") ))
+  File "/usr/local/lib/python2.7/dist-packages/flask/json.py", line 237, in jsonify
+    return current_app.response_class(dumps(dict(*args, **kwargs),
+ValueError: dictionary update sequence element #0 has length 5; 2 is required
+INFO:werkzeug:127.0.0.1 - - [11/Jan/2014 00:28:07] "GET /news?skip=10&count=10 HTTP/1.1" 500 -
+INFO:werkzeug: * Detected change in './app.py', reloading
+INFO:werkzeug: * Restarting with reloader
+INFO:werkzeug:127.0.0.1 - - [11/Jan/2014 00:28:37] "GET /news?skip=10&count=10 HTTP/1.1" 200 -
+INFO:werkzeug: * Detected change in './app.py', reloading
+INFO:werkzeug: * Restarting with reloader
+INFO:werkzeug: * Running on http://127.0.0.1:5000/
+INFO:werkzeug: * Restarting with reloader
+INFO:werkzeug:127.0.0.1 - - [11/Jan/2014 00:34:04] "GET /news?skip=10&count=10 HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [11/Jan/2014 00:34:19] "GET /news?source=HT_NDLS&skip=10&count=10 HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [11/Jan/2014 00:38:48] "GET /news?skip=10&count=10 HTTP/1.1" 200 -
+INFO:werkzeug: * Detected change in './app.py', reloading
+INFO:werkzeug: * Restarting with reloader
+INFO:werkzeug: * Running on http://127.0.0.1:5000/
+INFO:werkzeug: * Restarting with reloader
+INFO:werkzeug: * Detected change in '/home/k/Programs/python/news_classification/helpers.py', reloading
+INFO:werkzeug: * Restarting with reloader
+INFO:werkzeug: * Detected change in '/home/k/Programs/python/news_classification/helpers.py', reloading
+INFO:werkzeug: * Restarting with reloader
+INFO:werkzeug: * Detected change in '/home/k/Programs/python/news_classification/helpers.py', reloading
+INFO:werkzeug: * Restarting with reloader
+INFO:werkzeug:127.0.0.1 - - [11/Jan/2014 00:56:55] "POST /?PostTags HTTP/1.1" 404 -
+INFO:werkzeug:127.0.0.1 - - [11/Jan/2014 00:58:17] "POST /?PostTags HTTP/1.1" 404 -
+INFO:werkzeug:127.0.0.1 - - [11/Jan/2014 00:59:39] "POST /?PostTags HTTP/1.1" 404 -
+INFO:werkzeug:127.0.0.1 - - [11/Jan/2014 01:00:07] "POST /?tags HTTP/1.1" 404 -
+INFO:werkzeug:127.0.0.1 - - [11/Jan/2014 01:00:19] "POST /?tags HTTP/1.1" 404 -
+INFO:werkzeug:127.0.0.1 - - [11/Jan/2014 01:01:20] "POST /tags HTTP/1.1" 400 -
+INFO:werkzeug: * Detected change in './app.py', reloading
+INFO:werkzeug: * Restarting with reloader
+INFO:werkzeug:127.0.0.1 - - [11/Jan/2014 01:01:59] "POST /tags HTTP/1.1" 400 -
+INFO:werkzeug:127.0.0.1 - - [11/Jan/2014 01:03:00] "POST /tags HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [11/Jan/2014 01:03:35] "POST /tags HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [11/Jan/2014 01:04:55] "POST /tags HTTP/1.1" 400 -
+INFO:werkzeug:127.0.0.1 - - [11/Jan/2014 01:05:27] "GET /news?skip=10&count=10 HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [11/Jan/2014 01:05:40] "POST /tags HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [11/Jan/2014 01:05:51] "POST /tags HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [11/Jan/2014 01:06:16] "POST /tags HTTP/1.1" 200 -
+INFO:werkzeug: * Detected change in './app.py', reloading
+INFO:werkzeug: * Restarting with reloader
+ERROR:__main__:Internal Error
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1475, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1461, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/usr/local/lib/python2.7/dist-packages/flask_restful/__init__.py", line 252, in wrapper
+    resp = resource(*args, **kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/flask/views.py", line 84, in view
+    return self.dispatch_request(*args, **kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/flask_restful/__init__.py", line 332, in dispatch_request
+    resp = meth(*args, **kwargs)
+  File "./app.py", line 75, in post
+    print json.load(args)
+  File "/usr/lib/python2.7/json/__init__.py", line 274, in load
+    return loads(fp.read(),
+  File "/usr/local/lib/python2.7/dist-packages/flask_restful/reqparse.py", line 11, in __getattr__
+    raise AttributeError(name)
+AttributeError: read
+INFO:werkzeug:127.0.0.1 - - [11/Jan/2014 01:06:51] "POST /tags HTTP/1.1" 500 -
+INFO:werkzeug: * Detected change in './app.py', reloading
+INFO:werkzeug: * Restarting with reloader
+ERROR:__main__:Internal Error
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1475, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1461, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/usr/local/lib/python2.7/dist-packages/flask_restful/__init__.py", line 252, in wrapper
+    resp = resource(*args, **kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/flask/views.py", line 84, in view
+    return self.dispatch_request(*args, **kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/flask_restful/__init__.py", line 332, in dispatch_request
+    resp = meth(*args, **kwargs)
+  File "./app.py", line 75, in post
+    print json.loads(args)
+  File "/usr/lib/python2.7/json/__init__.py", line 326, in loads
+    return _default_decoder.decode(s)
+  File "/usr/lib/python2.7/json/decoder.py", line 366, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+TypeError: expected string or buffer
+INFO:werkzeug:127.0.0.1 - - [11/Jan/2014 01:07:23] "POST /tags HTTP/1.1" 500 -
+ERROR:__main__:Internal Error
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1475, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1461, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/usr/local/lib/python2.7/dist-packages/flask_restful/__init__.py", line 252, in wrapper
+    resp = resource(*args, **kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/flask/views.py", line 84, in view
+    return self.dispatch_request(*args, **kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/flask_restful/__init__.py", line 332, in dispatch_request
+    resp = meth(*args, **kwargs)
+  File "./app.py", line 75, in post
+    print json.loads(args)
+  File "/usr/lib/python2.7/json/__init__.py", line 326, in loads
+    return _default_decoder.decode(s)
+  File "/usr/lib/python2.7/json/decoder.py", line 366, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+TypeError: expected string or buffer
+INFO:werkzeug:127.0.0.1 - - [11/Jan/2014 01:08:19] "POST /tags HTTP/1.1" 500 -
+INFO:werkzeug: * Detected change in './app.py', reloading
+INFO:werkzeug: * Restarting with reloader
+INFO:werkzeug:127.0.0.1 - - [11/Jan/2014 01:08:34] "POST /tags HTTP/1.1" 200 -
+INFO:werkzeug: * Detected change in './app.py', reloading
+INFO:werkzeug: * Restarting with reloader
+INFO:werkzeug:127.0.0.1 - - [11/Jan/2014 01:09:28] "POST /tags HTTP/1.1" 200 -
+INFO:werkzeug: * Detected change in './app.py', reloading
+INFO:werkzeug: * Restarting with reloader
+INFO:werkzeug:127.0.0.1 - - [11/Jan/2014 01:09:44] "POST /tags HTTP/1.1" 200 -
+INFO:werkzeug: * Detected change in './app.py', reloading
+INFO:werkzeug: * Restarting with reloader
+ERROR:__main__:Internal Error
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1475, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1461, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/usr/local/lib/python2.7/dist-packages/flask_restful/__init__.py", line 252, in wrapper
+    resp = resource(*args, **kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/flask/views.py", line 84, in view
+    return self.dispatch_request(*args, **kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/flask_restful/__init__.py", line 332, in dispatch_request
+    resp = meth(*args, **kwargs)
+  File "./app.py", line 76, in post
+    for item in args["new_list"]:
+KeyError: 'new_list'
+INFO:werkzeug:127.0.0.1 - - [11/Jan/2014 01:10:15] "POST /tags HTTP/1.1" 500 -
+INFO:werkzeug: * Detected change in './app.py', reloading
+INFO:werkzeug: * Restarting with reloader
+INFO:werkzeug:127.0.0.1 - - [11/Jan/2014 01:10:28] "POST /tags HTTP/1.1" 200 -
+INFO:werkzeug: * Detected change in './app.py', reloading
+INFO:werkzeug: * Restarting with reloader
+ERROR:__main__:Internal Error
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1475, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1461, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/usr/local/lib/python2.7/dist-packages/flask_restful/__init__.py", line 252, in wrapper
+    resp = resource(*args, **kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/flask/views.py", line 84, in view
+    return self.dispatch_request(*args, **kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/flask_restful/__init__.py", line 332, in dispatch_request
+    resp = meth(*args, **kwargs)
+  File "./app.py", line 76, in post
+    for item in json.loads(args["news_list"]):
+  File "/usr/lib/python2.7/json/__init__.py", line 326, in loads
+    return _default_decoder.decode(s)
+  File "/usr/lib/python2.7/json/decoder.py", line 366, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "/usr/lib/python2.7/json/decoder.py", line 384, in raw_decode
+    raise ValueError("No JSON object could be decoded")
+ValueError: No JSON object could be decoded
+INFO:werkzeug:127.0.0.1 - - [11/Jan/2014 01:10:47] "POST /tags HTTP/1.1" 500 -
+INFO:werkzeug: * Detected change in './app.py', reloading
+INFO:werkzeug: * Restarting with reloader
+ERROR:__main__:Internal Error
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1475, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1461, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/usr/local/lib/python2.7/dist-packages/flask_restful/__init__.py", line 252, in wrapper
+    resp = resource(*args, **kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/flask/views.py", line 84, in view
+    return self.dispatch_request(*args, **kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/flask_restful/__init__.py", line 332, in dispatch_request
+    resp = meth(*args, **kwargs)
+  File "./app.py", line 76, in post
+    for item in json.loads(args):
+  File "/usr/lib/python2.7/json/__init__.py", line 326, in loads
+    return _default_decoder.decode(s)
+  File "/usr/lib/python2.7/json/decoder.py", line 366, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+TypeError: expected string or buffer
+INFO:werkzeug:127.0.0.1 - - [11/Jan/2014 01:19:02] "POST /tags HTTP/1.1" 500 -
+INFO:werkzeug: * Detected change in './app.py', reloading
+INFO:werkzeug: * Restarting with reloader
+INFO:werkzeug:127.0.0.1 - - [11/Jan/2014 01:19:23] "POST /tags HTTP/1.1" 200 -
+INFO:werkzeug: * Detected change in './app.py', reloading
+INFO:werkzeug: * Restarting with reloader
+ERROR:__main__:Internal Error
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1475, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1461, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/usr/local/lib/python2.7/dist-packages/flask_restful/__init__.py", line 252, in wrapper
+    resp = resource(*args, **kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/flask/views.py", line 84, in view
+    return self.dispatch_request(*args, **kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/flask_restful/__init__.py", line 332, in dispatch_request
+    resp = meth(*args, **kwargs)
+  File "./app.py", line 76, in post
+    print json.loads(args)
+  File "/usr/lib/python2.7/json/__init__.py", line 326, in loads
+    return _default_decoder.decode(s)
+  File "/usr/lib/python2.7/json/decoder.py", line 366, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+TypeError: expected string or buffer
+INFO:werkzeug:127.0.0.1 - - [11/Jan/2014 01:21:01] "POST /tags HTTP/1.1" 500 -
+INFO:werkzeug: * Detected change in './app.py', reloading
+INFO:werkzeug: * Restarting with reloader
+ERROR:__main__:Internal Error
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1475, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1461, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/usr/local/lib/python2.7/dist-packages/flask_restful/__init__.py", line 252, in wrapper
+    resp = resource(*args, **kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/flask/views.py", line 84, in view
+    return self.dispatch_request(*args, **kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/flask_restful/__init__.py", line 332, in dispatch_request
+    resp = meth(*args, **kwargs)
+  File "./app.py", line 77, in post
+    for item in eval(args["news_list"]):
+  File "<string>", line 1
+    [("234242', "crime"),("42342", "announce")]
+                     ^
+SyntaxError: invalid syntax
+INFO:werkzeug:127.0.0.1 - - [11/Jan/2014 01:22:36] "POST /tags HTTP/1.1" 500 -
+INFO:werkzeug:127.0.0.1 - - [11/Jan/2014 01:41:15] "POST /tags HTTP/1.1" 200 -
+ERROR:__main__:Internal Error
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1475, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1461, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/usr/local/lib/python2.7/dist-packages/flask_restful/__init__.py", line 252, in wrapper
+    resp = resource(*args, **kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/flask/views.py", line 84, in view
+    return self.dispatch_request(*args, **kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/flask_restful/__init__.py", line 332, in dispatch_request
+    resp = meth(*args, **kwargs)
+  File "./app.py", line 77, in post
+    for item in eval(args["news_list"]):
+  File "<string>", line 1, in <module>
+NameError: name 'tag' is not defined
+INFO:werkzeug:127.0.0.1 - - [11/Jan/2014 01:42:16] "POST /tags HTTP/1.1" 500 -
+INFO:werkzeug:127.0.0.1 - - [11/Jan/2014 01:42:32] "POST /tags HTTP/1.1" 200 -
+INFO:werkzeug: * Detected change in '/home/k/Programs/python/news_classification/helpers.py', reloading
+INFO:werkzeug: * Restarting with reloader
+INFO:werkzeug: * Detected change in '/home/k/Programs/python/news_classification/helpers.py', reloading
+INFO:werkzeug: * Restarting with reloader
+INFO:werkzeug: * Detected change in '/home/k/Programs/python/news_classification/helpers.py', reloading
+INFO:werkzeug: * Restarting with reloader
+INFO:werkzeug:127.0.0.1 - - [11/Jan/2014 02:25:07] "POST /tags HTTP/1.1" 400 -
+INFO:werkzeug:127.0.0.1 - - [11/Jan/2014 02:25:31] "POST /tags HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [11/Jan/2014 02:26:36] "POST /tags HTTP/1.1" 400 -
+INFO:werkzeug: * Detected change in '/home/k/Programs/python/news_classification/helpers.py', reloading
+INFO:werkzeug: * Restarting with reloader
+INFO:werkzeug:127.0.0.1 - - [11/Jan/2014 02:27:49] "POST /tags HTTP/1.1" 400 -
+INFO:werkzeug: * Detected change in './app.py', reloading
+INFO:werkzeug: * Restarting with reloader
+ERROR:__main__:An error occurred
+DEBUG:__main__:A value for debugging
+WARNING:__main__:A warning occurred (42 apples)
+INFO:__main__:My App
+INFO:werkzeug: * Running on http://127.0.0.1:5000/
+INFO:werkzeug: * Restarting with reloader
+ERROR:__main__:An error occurred
+DEBUG:__main__:A value for debugging
+WARNING:__main__:A warning occurred (42 apples)
+INFO:__main__:My App
+INFO:werkzeug:127.0.0.1 - - [11/Jan/2014 02:28:47] "POST /tags HTTP/1.1" 400 -
+INFO:werkzeug:127.0.0.1 - - [11/Jan/2014 02:29:21] "POST /tags HTTP/1.1" 400 -
+INFO:werkzeug:127.0.0.1 - - [11/Jan/2014 02:29:22] "POST /tags HTTP/1.1" 400 -
+ERROR:__main__:Internal Error
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1475, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1461, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/usr/local/lib/python2.7/dist-packages/flask_restful/__init__.py", line 252, in wrapper
+    resp = resource(*args, **kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/flask/views.py", line 84, in view
+    return self.dispatch_request(*args, **kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/flask_restful/__init__.py", line 332, in dispatch_request
+    resp = meth(*args, **kwargs)
+  File "./app.py", line 78, in post
+    for item in eval(args["news_list"]):
+  File "<string>", line 1, in <module>
+NameError: name 'tag' is not defined
+INFO:werkzeug:127.0.0.1 - - [11/Jan/2014 02:30:12] "POST /tags HTTP/1.1" 500 -
+INFO:werkzeug: * Detected change in './app.py', reloading
+INFO:werkzeug: * Restarting with reloader
+ERROR:__main__:An error occurred
+DEBUG:__main__:A value for debugging
+WARNING:__main__:A warning occurred (42 apples)
+INFO:__main__:My App
+INFO:werkzeug:127.0.0.1 - - [11/Jan/2014 02:31:36] "POST /tags HTTP/1.1" 200 -
+INFO:werkzeug: * Detected change in './app.py', reloading
+INFO:werkzeug: * Restarting with reloader
+ERROR:__main__:An error occurred
+DEBUG:__main__:A value for debugging
+WARNING:__main__:A warning occurred (42 apples)
+INFO:__main__:My App
+INFO:werkzeug:127.0.0.1 - - [11/Jan/2014 02:31:56] "POST /tags HTTP/1.1" 200 -
+INFO:werkzeug: * Detected change in './app.py', reloading
+INFO:werkzeug: * Restarting with reloader
+ERROR:__main__:An error occurred
+DEBUG:__main__:A value for debugging
+WARNING:__main__:A warning occurred (42 apples)
+INFO:__main__:My App
+INFO:werkzeug:127.0.0.1 - - [11/Jan/2014 02:32:12] "POST /tags HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [11/Jan/2014 02:40:53] "POST /tags HTTP/1.1" 400 -
+INFO:werkzeug:127.0.0.1 - - [11/Jan/2014 02:41:03] "POST /tags HTTP/1.1" 400 -
+INFO:werkzeug: * Detected change in './app.py', reloading
+INFO:werkzeug: * Restarting with reloader
+ERROR:__main__:An error occurred
+DEBUG:__main__:A value for debugging
+WARNING:__main__:A warning occurred (42 apples)
+INFO:__main__:My App
+ERROR:__main__:Internal Error
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1475, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1461, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/usr/local/lib/python2.7/dist-packages/flask_restful/__init__.py", line 252, in wrapper
+    resp = resource(*args, **kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/flask/views.py", line 84, in view
+    return self.dispatch_request(*args, **kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/flask_restful/__init__.py", line 332, in dispatch_request
+    resp = meth(*args, **kwargs)
+  File "./app.py", line 77, in post
+    print args["news_list"]
+KeyError: 'news_list'
+INFO:werkzeug:127.0.0.1 - - [11/Jan/2014 02:43:06] "POST /tags HTTP/1.1" 500 -
+INFO:werkzeug: * Detected change in './app.py', reloading
+INFO:werkzeug: * Restarting with reloader
+ERROR:__main__:An error occurred
+DEBUG:__main__:A value for debugging
+WARNING:__main__:A warning occurred (42 apples)
+INFO:__main__:My App
+INFO:werkzeug:127.0.0.1 - - [11/Jan/2014 02:43:25] "POST /tags HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [11/Jan/2014 02:43:48] "POST /tags HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [11/Jan/2014 02:46:56] "POST /tags HTTP/1.1" 200 -
+INFO:werkzeug: * Detected change in './app.py', reloading
+INFO:werkzeug: * Restarting with reloader
+ERROR:__main__:An error occurred
+DEBUG:__main__:A value for debugging
+WARNING:__main__:A warning occurred (42 apples)
+INFO:__main__:My App
+INFO:werkzeug:127.0.0.1 - - [11/Jan/2014 02:47:47] "POST /tags HTTP/1.1" 400 -
+INFO:werkzeug:127.0.0.1 - - [11/Jan/2014 02:51:57] "POST /tags HTTP/1.1" 400 -
+INFO:werkzeug:127.0.0.1 - - [11/Jan/2014 02:53:38] "POST /tags HTTP/1.1" 400 -
+INFO:werkzeug:127.0.0.1 - - [11/Jan/2014 02:53:55] "POST /tags HTTP/1.1" 400 -
+INFO:werkzeug:127.0.0.1 - - [11/Jan/2014 02:53:59] "POST /tags HTTP/1.1" 400 -
+INFO:werkzeug:127.0.0.1 - - [11/Jan/2014 02:59:02] "POST /tags HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [11/Jan/2014 03:00:26] "POST /tags HTTP/1.1" 400 -
+INFO:werkzeug:127.0.0.1 - - [11/Jan/2014 03:00:27] "POST /tags HTTP/1.1" 400 -
+INFO:werkzeug: * Detected change in './app.py', reloading
+INFO:werkzeug: * Restarting with reloader
+ERROR:__main__:An error occurred
+DEBUG:__main__:A value for debugging
+WARNING:__main__:A warning occurred (42 apples)
+INFO:__main__:My App
+ERROR:__main__:Internal Error
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1475, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1461, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/usr/local/lib/python2.7/dist-packages/flask_restful/__init__.py", line 256, in wrapper
+    return self.make_response(data, code, headers=headers)
+  File "/usr/local/lib/python2.7/dist-packages/flask_restful/__init__.py", line 273, in make_response
+    resp = self.representations[mediatype](data, *args, **kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/flask_restful/representations/json.py", line 23, in output_json
+    dumped = dumps(data, **local_settings)
+  File "/usr/lib/python2.7/json/__init__.py", line 238, in dumps
+    **kw).encode(obj)
+  File "/usr/lib/python2.7/json/encoder.py", line 203, in encode
+    chunks = list(chunks)
+  File "/usr/lib/python2.7/json/encoder.py", line 436, in _iterencode
+    o = _default(o)
+  File "/usr/lib/python2.7/json/encoder.py", line 178, in default
+    raise TypeError(repr(o) + " is not JSON serializable")
+TypeError: <Response 13440 bytes [200 OK]> is not JSON serializable
+INFO:werkzeug:127.0.0.1 - - [11/Jan/2014 03:10:07] "GET /news?source=HT_NDLS&skip=10&count=10 HTTP/1.1" 500 -
+INFO:werkzeug: * Detected change in './app.py', reloading
+INFO:werkzeug: * Restarting with reloader
+ERROR:__main__:An error occurred
+DEBUG:__main__:A value for debugging
+WARNING:__main__:A warning occurred (42 apples)
+INFO:__main__:My App
+INFO:werkzeug:127.0.0.1 - - [11/Jan/2014 03:10:32] "GET /news?source=HT_NDLS&skip=10&count=10 HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [11/Jan/2014 03:13:49] "POST /todos HTTP/1.1" 404 -
+INFO:werkzeug:127.0.0.1 - - [11/Jan/2014 03:14:09] "POST /tags HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [11/Jan/2014 03:14:39] "POST /tags HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [11/Jan/2014 03:15:20] "POST /tags HTTP/1.1" 400 -
+INFO:werkzeug:127.0.0.1 - - [11/Jan/2014 03:15:36] "POST /tags HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [11/Jan/2014 03:15:58] "POST /tags HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [11/Jan/2014 03:16:09] "POST /tags HTTP/1.1" 200 -
+INFO:werkzeug: * Detected change in './app.py', reloading
+INFO:werkzeug: * Restarting with reloader
+ERROR:__main__:An error occurred
+DEBUG:__main__:A value for debugging
+WARNING:__main__:A warning occurred (42 apples)
+INFO:__main__:My App
+INFO:werkzeug:127.0.0.1 - - [11/Jan/2014 03:17:18] "POST /tags HTTP/1.1" 200 -
+INFO:werkzeug: * Detected change in './app.py', reloading
+INFO:werkzeug: * Restarting with reloader
+ERROR:__main__:An error occurred
+DEBUG:__main__:A value for debugging
+WARNING:__main__:A warning occurred (42 apples)
+INFO:__main__:My App
+ERROR:__main__:Internal Error
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1475, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1461, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/usr/local/lib/python2.7/dist-packages/flask_restful/__init__.py", line 252, in wrapper
+    resp = resource(*args, **kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/flask/views.py", line 84, in view
+    return self.dispatch_request(*args, **kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/flask_restful/__init__.py", line 332, in dispatch_request
+    resp = meth(*args, **kwargs)
+  File "./app.py", line 83, in post
+    return jsonify(result = NewsData.post_tags(args["news_list"]),
+AttributeError: type object 'NewsData' has no attribute 'post_tags'
+INFO:werkzeug:127.0.0.1 - - [11/Jan/2014 03:18:48] "POST /tags HTTP/1.1" 500 -
+INFO:werkzeug: * Detected change in '/home/k/Programs/python/news_classification/helpers.py', reloading
+INFO:werkzeug: * Restarting with reloader
+ERROR:__main__:An error occurred
+DEBUG:__main__:A value for debugging
+WARNING:__main__:A warning occurred (42 apples)
+INFO:__main__:My App
+INFO:werkzeug: * Running on http://127.0.0.1:5000/
+INFO:werkzeug: * Restarting with reloader
+ERROR:__main__:An error occurred
+DEBUG:__main__:A value for debugging
+WARNING:__main__:A warning occurred (42 apples)
+INFO:__main__:My App
+ERROR:__main__:Internal Error
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1475, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1461, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/usr/local/lib/python2.7/dist-packages/flask_restful/__init__.py", line 252, in wrapper
+    resp = resource(*args, **kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/flask/views.py", line 84, in view
+    return self.dispatch_request(*args, **kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/flask_restful/__init__.py", line 332, in dispatch_request
+    resp = meth(*args, **kwargs)
+  File "./app.py", line 83, in post
+    return jsonify(result = NewsData.post_tags(args["news_list"]),
+  File "/home/k/Programs/python/news_classification/helpers.py", line 135, in post_tags
+    scraped_ids = [entry.get("id") for entry in new_list if len(entry.get("id")) < 24 or entry.get("tag") == ""]
+NameError: global name 'new_list' is not defined
+INFO:werkzeug:127.0.0.1 - - [11/Jan/2014 03:20:18] "POST /tags HTTP/1.1" 500 -
+INFO:werkzeug: * Detected change in '/home/k/Programs/python/news_classification/helpers.py', reloading
+INFO:werkzeug: * Restarting with reloader
+ERROR:__main__:An error occurred
+DEBUG:__main__:A value for debugging
+WARNING:__main__:A warning occurred (42 apples)
+INFO:__main__:My App
+ERROR:__main__:Internal Error
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1475, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1461, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/usr/local/lib/python2.7/dist-packages/flask_restful/__init__.py", line 252, in wrapper
+    resp = resource(*args, **kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/flask/views.py", line 84, in view
+    return self.dispatch_request(*args, **kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/flask_restful/__init__.py", line 332, in dispatch_request
+    resp = meth(*args, **kwargs)
+  File "./app.py", line 83, in post
+    return jsonify(result = NewsData.post_tags(args["news_list"]),
+  File "/home/k/Programs/python/news_classification/helpers.py", line 135, in post_tags
+    scraped_ids = [entry.get("id") for entry in news_list if len(entry.get("id")) < 24 or entry.get("tag") == ""]
+AttributeError: 'unicode' object has no attribute 'get'
+INFO:werkzeug:127.0.0.1 - - [11/Jan/2014 03:20:43] "POST /tags HTTP/1.1" 500 -
+INFO:werkzeug: * Detected change in './app.py', reloading
+INFO:werkzeug: * Restarting with reloader
+ERROR:__main__:An error occurred
+DEBUG:__main__:A value for debugging
+WARNING:__main__:A warning occurred (42 apples)
+INFO:__main__:My App
+ERROR:__main__:Internal Error
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1475, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1461, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/usr/local/lib/python2.7/dist-packages/flask_restful/__init__.py", line 252, in wrapper
+    resp = resource(*args, **kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/flask/views.py", line 84, in view
+    return self.dispatch_request(*args, **kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/flask_restful/__init__.py", line 332, in dispatch_request
+    resp = meth(*args, **kwargs)
+  File "./app.py", line 83, in post
+    return jsonify(result = NewsData.post_tags(args["news_list"]),
+  File "/home/k/Programs/python/news_classification/helpers.py", line 135, in post_tags
+    scraped_ids = [entry.get("id") for entry in news_list if len(entry.get("id")) < 24 or entry.get("tag") == ""]
+AttributeError: 'unicode' object has no attribute 'get'
+INFO:werkzeug:127.0.0.1 - - [11/Jan/2014 03:21:40] "POST /tags HTTP/1.1" 500 -
+ERROR:__main__:Internal Error
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1475, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1461, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/usr/local/lib/python2.7/dist-packages/flask_restful/__init__.py", line 252, in wrapper
+    resp = resource(*args, **kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/flask/views.py", line 84, in view
+    return self.dispatch_request(*args, **kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/flask_restful/__init__.py", line 332, in dispatch_request
+    resp = meth(*args, **kwargs)
+  File "./app.py", line 83, in post
+    return jsonify(result = NewsData.post_tags(args["news_list"]),
+  File "/home/k/Programs/python/news_classification/helpers.py", line 135, in post_tags
+    scraped_ids = [entry.get("id") for entry in news_list if len(entry.get("id")) < 24 or entry.get("tag") == ""]
+AttributeError: 'unicode' object has no attribute 'get'
+INFO:werkzeug:127.0.0.1 - - [11/Jan/2014 03:21:48] "POST /tags HTTP/1.1" 500 -
+INFO:werkzeug: * Detected change in './app.py', reloading
+INFO:werkzeug: * Restarting with reloader
+ERROR:__main__:An error occurred
+DEBUG:__main__:A value for debugging
+WARNING:__main__:A warning occurred (42 apples)
+INFO:__main__:My App
+ERROR:__main__:Internal Error
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1475, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1461, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/usr/local/lib/python2.7/dist-packages/flask_restful/__init__.py", line 252, in wrapper
+    resp = resource(*args, **kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/flask/views.py", line 84, in view
+    return self.dispatch_request(*args, **kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/flask_restful/__init__.py", line 332, in dispatch_request
+    resp = meth(*args, **kwargs)
+  File "./app.py", line 84, in post
+    return jsonify(result = NewsData.post_tags(news_list),
+  File "/home/k/Programs/python/news_classification/helpers.py", line 138, in post_tags
+    success_ids = [news for news in new_data if not news.get("id") in scraped]
+NameError: global name 'new_data' is not defined
+INFO:werkzeug:127.0.0.1 - - [11/Jan/2014 03:22:23] "POST /tags HTTP/1.1" 500 -
+INFO:werkzeug: * Detected change in '/home/k/Programs/python/news_classification/helpers.py', reloading
+INFO:werkzeug: * Restarting with reloader
+ERROR:__main__:An error occurred
+DEBUG:__main__:A value for debugging
+WARNING:__main__:A warning occurred (42 apples)
+INFO:__main__:My App
+ERROR:__main__:Internal Error
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1475, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1461, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/usr/local/lib/python2.7/dist-packages/flask_restful/__init__.py", line 252, in wrapper
+    resp = resource(*args, **kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/flask/views.py", line 84, in view
+    return self.dispatch_request(*args, **kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/flask_restful/__init__.py", line 332, in dispatch_request
+    resp = meth(*args, **kwargs)
+  File "./app.py", line 84, in post
+    return jsonify(result = NewsData.post_tags(news_list),
+  File "/home/k/Programs/python/news_classification/helpers.py", line 138, in post_tags
+    success_ids = [news for news in news_data if not news.get("id") in scraped]
+NameError: global name 'news_data' is not defined
+INFO:werkzeug:127.0.0.1 - - [11/Jan/2014 03:22:43] "POST /tags HTTP/1.1" 500 -
+INFO:werkzeug: * Detected change in '/home/k/Programs/python/news_classification/helpers.py', reloading
+INFO:werkzeug: * Restarting with reloader
+ERROR:__main__:An error occurred
+DEBUG:__main__:A value for debugging
+WARNING:__main__:A warning occurred (42 apples)
+INFO:__main__:My App
+ERROR:__main__:Internal Error
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1475, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1461, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/usr/local/lib/python2.7/dist-packages/flask_restful/__init__.py", line 252, in wrapper
+    resp = resource(*args, **kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/flask/views.py", line 84, in view
+    return self.dispatch_request(*args, **kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/flask_restful/__init__.py", line 332, in dispatch_request
+    resp = meth(*args, **kwargs)
+  File "./app.py", line 84, in post
+    return jsonify(result = NewsData.post_tags(news_list),
+  File "/home/k/Programs/python/news_classification/helpers.py", line 138, in post_tags
+    success_ids = [news for news in news_list if not news.get("id") in scraped]
+NameError: global name 'scraped' is not defined
+INFO:werkzeug:127.0.0.1 - - [11/Jan/2014 03:23:06] "POST /tags HTTP/1.1" 500 -
+INFO:werkzeug: * Detected change in '/home/k/Programs/python/news_classification/helpers.py', reloading
+INFO:werkzeug: * Restarting with reloader
+ERROR:__main__:An error occurred
+DEBUG:__main__:A value for debugging
+WARNING:__main__:A warning occurred (42 apples)
+INFO:__main__:My App
+INFO:werkzeug:127.0.0.1 - - [11/Jan/2014 03:23:30] "POST /tags HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [11/Jan/2014 03:25:08] "POST /tags HTTP/1.1" 200 -
+INFO:werkzeug: * Detected change in '/home/k/Programs/python/news_classification/helpers.py', reloading
+INFO:werkzeug: * Restarting with reloader
+ERROR:__main__:An error occurred
+DEBUG:__main__:A value for debugging
+WARNING:__main__:A warning occurred (42 apples)
+INFO:__main__:My App
+INFO:werkzeug:127.0.0.1 - - [11/Jan/2014 03:26:44] "POST /tags HTTP/1.1" 200 -
+INFO:werkzeug: * Detected change in './app.py', reloading
+INFO:werkzeug: * Restarting with reloader
+ERROR:__main__:An error occurred
+DEBUG:__main__:A value for debugging
+WARNING:__main__:A warning occurred (42 apples)
+INFO:__main__:My App

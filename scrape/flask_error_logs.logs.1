@@ -1,0 +1,109 @@
+2014-01-11 03:17:16,196 WARNING: A warning occurred (42 apples) custom_logging [in /home/k/Programs/python/news_classification/scrape/custom_logging.py:38]
+2014-01-11 03:17:16,222 INFO: My App custom_logging [in /home/k/Programs/python/news_classification/scrape/custom_logging.py:39]
+2014-01-11 03:18:47,097 ERROR: An error occurred custom_logging [in /home/k/Programs/python/news_classification/scrape/custom_logging.py:36]
+2014-01-11 03:18:47,097 DEBUG: A value for debugging custom_logging [in /home/k/Programs/python/news_classification/scrape/custom_logging.py:37]
+2014-01-11 03:18:47,098 WARNING: A warning occurred (42 apples) custom_logging [in /home/k/Programs/python/news_classification/scrape/custom_logging.py:38]
+2014-01-11 03:18:47,098 INFO: My App custom_logging [in /home/k/Programs/python/news_classification/scrape/custom_logging.py:39]
+2014-01-11 03:18:48,642 ERROR: Internal Error __init__ [in /usr/local/lib/python2.7/dist-packages/flask_restful/__init__.py:167]
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1475, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1461, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/usr/local/lib/python2.7/dist-packages/flask_restful/__init__.py", line 252, in wrapper
+    resp = resource(*args, **kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/flask/views.py", line 84, in view
+    return self.dispatch_request(*args, **kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/flask_restful/__init__.py", line 332, in dispatch_request
+    resp = meth(*args, **kwargs)
+  File "./app.py", line 83, in post
+    return jsonify(result = NewsData.post_tags(args["news_list"]),
+AttributeError: type object 'NewsData' has no attribute 'post_tags'
+2014-01-11 03:20:12,487 ERROR: An error occurred custom_logging [in /home/k/Programs/python/news_classification/scrape/custom_logging.py:36]
+2014-01-11 03:20:12,487 DEBUG: A value for debugging custom_logging [in /home/k/Programs/python/news_classification/scrape/custom_logging.py:37]
+2014-01-11 03:20:12,487 WARNING: A warning occurred (42 apples) custom_logging [in /home/k/Programs/python/news_classification/scrape/custom_logging.py:38]
+2014-01-11 03:20:12,487 INFO: My App custom_logging [in /home/k/Programs/python/news_classification/scrape/custom_logging.py:39]
+2014-01-11 03:20:12,699 ERROR: An error occurred custom_logging [in /home/k/Programs/python/news_classification/scrape/custom_logging.py:36]
+2014-01-11 03:20:12,699 DEBUG: A value for debugging custom_logging [in /home/k/Programs/python/news_classification/scrape/custom_logging.py:37]
+2014-01-11 03:20:12,700 WARNING: A warning occurred (42 apples) custom_logging [in /home/k/Programs/python/news_classification/scrape/custom_logging.py:38]
+2014-01-11 03:20:12,700 INFO: My App custom_logging [in /home/k/Programs/python/news_classification/scrape/custom_logging.py:39]
+2014-01-11 03:20:18,409 ERROR: Internal Error __init__ [in /usr/local/lib/python2.7/dist-packages/flask_restful/__init__.py:167]
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1475, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1461, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/usr/local/lib/python2.7/dist-packages/flask_restful/__init__.py", line 252, in wrapper
+    resp = resource(*args, **kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/flask/views.py", line 84, in view
+    return self.dispatch_request(*args, **kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/flask_restful/__init__.py", line 332, in dispatch_request
+    resp = meth(*args, **kwargs)
+  File "./app.py", line 83, in post
+    return jsonify(result = NewsData.post_tags(args["news_list"]),
+  File "/home/k/Programs/python/news_classification/helpers.py", line 135, in post_tags
+    scraped_ids = [entry.get("id") for entry in new_list if len(entry.get("id")) < 24 or entry.get("tag") == ""]
+NameError: global name 'new_list' is not defined
+2014-01-11 03:20:42,323 ERROR: An error occurred custom_logging [in /home/k/Programs/python/news_classification/scrape/custom_logging.py:36]
+2014-01-11 03:20:42,323 DEBUG: A value for debugging custom_logging [in /home/k/Programs/python/news_classification/scrape/custom_logging.py:37]
+2014-01-11 03:20:42,324 WARNING: A warning occurred (42 apples) custom_logging [in /home/k/Programs/python/news_classification/scrape/custom_logging.py:38]
+2014-01-11 03:20:42,324 INFO: My App custom_logging [in /home/k/Programs/python/news_classification/scrape/custom_logging.py:39]
+2014-01-11 03:20:43,440 ERROR: Internal Error __init__ [in /usr/local/lib/python2.7/dist-packages/flask_restful/__init__.py:167]
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1475, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1461, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/usr/local/lib/python2.7/dist-packages/flask_restful/__init__.py", line 252, in wrapper
+    resp = resource(*args, **kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/flask/views.py", line 84, in view
+    return self.dispatch_request(*args, **kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/flask_restful/__init__.py", line 332, in dispatch_request
+    resp = meth(*args, **kwargs)
+  File "./app.py", line 83, in post
+    return jsonify(result = NewsData.post_tags(args["news_list"]),
+  File "/home/k/Programs/python/news_classification/helpers.py", line 135, in post_tags
+    scraped_ids = [entry.get("id") for entry in news_list if len(entry.get("id")) < 24 or entry.get("tag") == ""]
+AttributeError: 'unicode' object has no attribute 'get'
+2014-01-11 03:21:39,934 ERROR: An error occurred custom_logging [in /home/k/Programs/python/news_classification/scrape/custom_logging.py:36]
+2014-01-11 03:21:39,935 DEBUG: A value for debugging custom_logging [in /home/k/Programs/python/news_classification/scrape/custom_logging.py:37]
+2014-01-11 03:21:39,935 WARNING: A warning occurred (42 apples) custom_logging [in /home/k/Programs/python/news_classification/scrape/custom_logging.py:38]
+2014-01-11 03:21:39,935 INFO: My App custom_logging [in /home/k/Programs/python/news_classification/scrape/custom_logging.py:39]
+2014-01-11 03:21:40,556 ERROR: Internal Error __init__ [in /usr/local/lib/python2.7/dist-packages/flask_restful/__init__.py:167]
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1475, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1461, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/usr/local/lib/python2.7/dist-packages/flask_restful/__init__.py", line 252, in wrapper
+    resp = resource(*args, **kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/flask/views.py", line 84, in view
+    return self.dispatch_request(*args, **kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/flask_restful/__init__.py", line 332, in dispatch_request
+    resp = meth(*args, **kwargs)
+  File "./app.py", line 83, in post
+    return jsonify(result = NewsData.post_tags(args["news_list"]),
+  File "/home/k/Programs/python/news_classification/helpers.py", line 135, in post_tags
+    scraped_ids = [entry.get("id") for entry in news_list if len(entry.get("id")) < 24 or entry.get("tag") == ""]
+AttributeError: 'unicode' object has no attribute 'get'
+2014-01-11 03:21:48,160 ERROR: Internal Error __init__ [in /usr/local/lib/python2.7/dist-packages/flask_restful/__init__.py:167]
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1475, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1461, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/usr/local/lib/python2.7/dist-packages/flask_restful/__init__.py", line 252, in wrapper
+    resp = resource(*args, **kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/flask/views.py", line 84, in view
+    return self.dispatch_request(*args, **kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/flask_restful/__init__.py", line 332, in dispatch_request
+    resp = meth(*args, **kwargs)
+  File "./app.py", line 83, in post
+    return jsonify(result = NewsData.post_tags(args["news_list"]),
+  File "/home/k/Programs/python/news_classification/helpers.py", line 135, in post_tags
+    scraped_ids = [entry.get("id") for entry in news_list if len(entry.get("id")) < 24 or entry.get("tag") == ""]
+AttributeError: 'unicode' object has no attribute 'get'
+2014-01-11 03:22:22,489 ERROR: An error occurred custom_logging [in /home/k/Programs/python/news_classification/scrape/custom_logging.py:36]
+2014-01-11 03:22:22,490 DEBUG: A value for debugging custom_logging [in /home/k/Programs/python/news_classification/scrape/custom_logging.py:37]
+2014-01-11 03:22:22,490 WARNING: A warning occurred (42 apples) custom_logging [in /home/k/Programs/python/news_classification/scrape/custom_logging.py:38]
+2014-01-11 03:22:22,490 INFO: My App custom_logging [in /home/k/Programs/python/news_classification/scrape/custom_logging.py:39]

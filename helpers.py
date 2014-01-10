@@ -3,6 +3,7 @@
 from scrape import DB, DBInsert
 from scrape import collection as C
 import re
+from bson import ObjectId
 
 collection = C("News")
 fields = ["_id", "full_text", "source", "scraped_date", "link", "tag"]
@@ -96,7 +97,7 @@ class NewsData(object):
 				will be skipped while delivering.
 		"""
 		if not re.search("\d{2}\s+\w{3}\s+\d{4}", published_date):
-			raise NotValidDateFormat
+			raise NotValidDateFormatError
 
 		if count:
 
@@ -109,8 +110,44 @@ class NewsData(object):
 		return [dict(id=str(news.get("_id")), full_text=news.get("full_text"), source=news.get("source"), link=news.get("link"), tag=news.get("tag")) for news in data]
 
 
+	@staticmethod
+	def post_tags(news_list):
+		"""
+		This function is used to tag or edit their tags of the news posts present in the database
+		Args:
+			news_list: list of dictionaries with each dictionary having id and tag as keys
+		Variables:
+			invalid_ids: List of ids which are not present in the database
+			scraped_ids: List of ids which are either shorter then 24 digits or have empty tags
+			success_ids: List of ids which are successfully updated._
+		"""
+			
+		invalid_ids = list()
 
-class NotValidDateFormat(Exception):
+		def edit_db(id, tag):
+			if collection.find_one({"_id": ObjectId(id)}):
+				#collection.update({"_id": id}, {"$set": {"tag": tag}})	
+				return
+			invalid_ids.append(id)
+			return 
+
+		#Below is the list which have all the id which have discrepancy wither in their id or in their tag empty
+		scraped_ids = [entry.get("id") for entry in news_list if len(entry.get("id")) < 24 or entry.get("tag") == ""]
+
+		#Below is the list which have id of length 24 and non empty tags
+		success_ids = [news for news in news_list if not news.get("id") in scraped_ids]
+				
+		for entry in success_ids:
+			edit_db(entry.get("id"), entry.get("tag"))
+
+		success_ids = [news for news in news_list if not news.get("id") in invalid_ids]
+			
+		return dict(invalid_ids=invalid_ids, scraped_ids=scraped_ids, success_ids=success_ids)
+
+
+
+
+class NotValidDateFormatError(Exception):
 	def __init__(self):
 		pass
 
@@ -118,3 +155,9 @@ class NotValidDateFormat(Exception):
 		return "Not a valid date format, should be like '18 jun 1985'"
 
 
+class EntryDoesntExistsError(Exception):
+	def __init__(self, id):
+		self.id = id	
+
+	def str(self):
+		return "The news corresponding to %s id doesnt exists in the database"%(self.id)

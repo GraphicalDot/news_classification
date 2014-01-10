@@ -4,96 +4,91 @@ from flask import Flask, request, jsonify
 from flask.ext.restful import Resource, Api
 from flask.ext.restful import reqparse
 import json
+from helpers import NewsData, NotValidDateFormatError
 from scrape import app_logger
 
 app = Flask(__name__)
-#app.config.from_pyfile('configs/flask_config.py')
+app.config.from_pyfile('configs/flask_config.py')
 api = Api(app)
 
-ht_name_parser = reqparse.RequestParser()
-tag_name_parser.add_argument('tag', type=str, required=True, help="Tag nname should be provided in the arguments", location="args")
+news_parser = reqparse.RequestParser()
+news_parser.add_argument('skip', type=int, required=True, help="skip should be provided in the arguments", location="args")
+news_parser.add_argument('source', type=str, required=False, location="args")
+news_parser.add_argument('count', type=int, required=False, location="args")
+news_parser.add_argument('published_date', type=str, required=False, location="args")
 
 
-image_parser = reqparse.RequestParser()
-image_parser.add_argument('tag', type=str, required=True, help="Tag name should be provided in the arguments", location="args")
-image_parser.add_argument('size', type=str, location="args")
-image_parser.add_argument('count', type=str, location="args")
+tag_parser = reqparse.RequestParser()
+tag_parser.add_argument('news_list', required=True, help="News List should be provided", location="form")
 
-
-parser = reqparse.RequestParser()
-parser.add_argument('rate', type=int, help='Rate cannot be converted')
-parser.add_argument('name', type=str)
-args = parser.parse_args()
-parser.add_argument('name', type=str, required=True, help="Name cannot be blank!")
-
-#Look only in the POST body
-parser.add_argument('name', type=int, location='form')
-
-# Look only in the querystring
-parser.add_argument('PageSize', type=int, location='args')
-
-# From the request headers
-parser.add_argument('User-Agent', type=str, location='headers')
-
-# From http cookies
-parser.add_argument('session_id', type=str, location='cookies')
-
-# From file uploads
-parser.add_argument('picture', type=werkzeug.datastructures.FileStorage, location='files')
-args = parser.parse_args()
 
 ##Example of simple function which uses the args defined above
 
-class TodoSimple(Resource):
-	def get(self, todo_id):
-		return {todo_id: todos[todo_id]}
+class GetNews(Resource):
+	"""
+	This Class is used to get on the basis of the arguments provided in the get request
+	Args:
+		source: Source of the news which in our case could be of three types yet.
+			HT_NDLS
+			HIN_NDLS
+			TOI_NDLS
+		published_date:
+			Get news on the basis of the day it was published.Right now you cannot get news on the basis of 
+			source from which its been published and the published date
+			Format:
+				"18 jun 2014"
+		skip:
+			News to be skipped in the db before the count starts.For example if skip = 100, 100 latest news will
+			be skipped before new news will be delivered.
 
-	def put(self, todo_id):
-		todos[todo_id] = request.form['data']
-		return {todo_id: todos[todo_id]}
+		count: NUmber of new article to be delivered.
+	Exceptions Raised:
+		NotVaildDateFormatError:
+			when the format of the news is not in the format as mentioned above in puclished date format.
 
-api.add_resource(TodoSimple, '/<string:todo_id>')
-
-
-
-class TagsName(Resource):
-	This method name return the tags names matching the tag name provided by the user in the get arguments
-
+	"""
 	def get(self):
-		args = tag_name_parser.parse_args()
-		print args, CLIENT_ID, CLIENT_SECRET
-		instance = Instagram(CLIENT_ID, CLIENT_SECRET)
-		data = instance.tag_names(args["tag"])
-		data = [str(tag) for tag in data]
-		return jsonify(data)
+		args = news_parser.parse_args()
 
-class PopularImages(Resource):
+		if args.get("source"):
+			return jsonify(result = NewsData.data_by_source(source=args.get("source"), skip=args.get("skip"), count=args.get("count")),
+				error = False,
+				succes= True, )
 
-	def get(self):
-		instance = Instagram(CLIENT_ID, CLIENT_SECRET)
-		return json.dumps(instance.popular_images())
 
-class ImagesByTag(Resource):
+		if args.get("published_date"):
+			try:
+				return jsonify(result = NewsData.for_date(published_date=args.get("published_date"), skip=args.get("skip"), count=args.get("count")),
+						error=False,
+						success=True, )
+			except NotValidDateFormatError as e:
+				return jsonify(error=True,
+						success= False,
+						messege=e.str(),)
+		
+		return json.dumps(NewsData.without_tag(skip=args.get("skip"), count=args.get("count") ))
 
-	def get(self):
-		args = image_parser.parse_args()
-		instance = Instagram(CLIENT_ID, CLIENT_SECRET)
-		data = instance.images_by_tag(args["tag"], args["size"], args["count"])
-		if data[0].get("image") is None:
-			return json.dumps({
-				"error": True,
-				"messege": "You have not entered valid resolution size.\n Try entering.\n thumnail.\n standard_resolution.\n or low_resolution.\n" 
-				})
-		data = [str(tag) for tag in data]
-		return json.dumps(data)
 
-api.add_resource(TagsName, '/tags')
-api.add_resource(PopularImages, '/popularImages')
-api.add_resource(ImagesByTag, '/ImagesByTag')
-"""		
+class PostTags(Resource):
+	"""
+	How to test
+	import request
+	request = requests.post("http://localhost:5000/tags", data={"news_list": json.dumps(new_data)})
+	"""
+
+	def post(self):
+		args = tag_parser.parse_args()
+		news_list = json.loads(args["news_list"])
+		return jsonify(result = NewsData.post_tags(news_list),
+				error = False,
+				succes= True, )
+
+
+api.add_resource(GetNews, '/news')
+api.add_resource(PostTags, '/tags')
 		
 if __name__ == "__main__":
-#	app_logger(app)
+	app_logger(app)
 	print "kaali"
-	app.run(host="localhost",  port= 5000, debug=True)
+	app.run(debug=True)
 
