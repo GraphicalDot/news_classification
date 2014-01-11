@@ -899,3 +899,13 @@ ERROR:__main__:An error occurred
 DEBUG:__main__:A value for debugging
 WARNING:__main__:A warning occurred (42 apples)
 INFO:__main__:My App
+ERROR:__main__:An error occurred
+DEBUG:__main__:A value for debugging
+WARNING:__main__:A warning occurred (42 apples)
+INFO:__main__:My App
+INFO:werkzeug: * Running on http://127.0.0.1:5000/
+INFO:werkzeug: * Restarting with reloader
+ERROR:__main__:An error occurred
+DEBUG:__main__:A value for debugging
+WARNING:__main__:A warning occurred (42 apples)
+INFO:__main__:My App

@@ -6,10 +6,10 @@ from fabric.colors import green as _green, yellow as _yellow, red as _red
 from fabric.contrib.files import exists
 from fabric.utils import error
 import os
-
+import time
 
 env.use_ssh_config = True
-env.hosts = ["ec2-54-208-143-49.compute-1.amazonaws.com"]
+env.hosts = ["ec2-54-209-242-26.compute-1.amazonaws.com"]
 env.user = "ubuntu"
 env.key_filename = "/home/k/Programs/PemFiles/sanil_news.pem"
 env.warn_only = False
@@ -38,6 +38,7 @@ def after_env():
 		run("sudo apt-get install -y python-all-dev")
 		run("sudo apt-get install -y ipython")
 		run("sudo apt-get install -y python-setuptools python-dev build-essential")
+		run("sudo apt-get install -y libxml2-dev libxslt1-dev")
 
 
 def virtual_env():
@@ -129,7 +130,9 @@ def mongo():
 		run("echo -e 'deb http://downloads-distro.mongodb.org/repo/ubuntu-upstart dist 10gen' | sudo tee /etc/apt/sources.list.d/mongodb.list")
 		run("sudo apt-get update")
 		run("sudo apt-get install -y mongodb-10gen")
-
+#		run("sudo cp configs/mongodb.conf /etc/mongodb.conf")
+	run("sudo rm -rf  /var/lib/mongodb/mongod.lock")
+	run("sudo service mongodb restart")
 
 
 def mongo_status():
@@ -156,8 +159,9 @@ def supervisord():
 	"""
 	with settings(user="ubuntu"):
 		with prefix("cd /home/ubuntu/VirtualEnvironment &&source bin/activate && cd news_classification"):
+			run("sudo touch /etc/supervisord.conf")
 			run("sudo cp configs/supervisord.conf /etc/supervisord.conf")
-			run("sudo supervisorctl reload")
+			run("supervisord")
 
 def update_supervisord_conf():
 	"""
@@ -217,6 +221,7 @@ def status():
 	print(_green("Connecting to EC2 Instance..."))	
 	run("free -m")
 	execute(supervisord_status)
+	execute(mongo_status)
 	execute(nginx_status)
 	execute(gunicorn_status)
 	print(_yellow("...Disconnecting EC2 instance..."))
@@ -247,7 +252,8 @@ def deploy():
 	execute(nginx)
 	execute(mongo)
 	execute(supervisord)
+	execute(status)
 	print(_yellow("...Disconnecting EC2 instance..."))
-	run("sudo reboot")
+#	run("sudo reboot")
 	disconnect_all()
 

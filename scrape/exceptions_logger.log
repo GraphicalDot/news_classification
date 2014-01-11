@@ -135,3 +135,5 @@ INFO:requests.packages.urllib3.connectionpool:Starting new HTTP connection (1): 
 DEBUG:requests.packages.urllib3.connectionpool:"POST /tags HTTP/1.1" 200 2315
 INFO:requests.packages.urllib3.connectionpool:Starting new HTTP connection (1): localhost
 DEBUG:requests.packages.urllib3.connectionpool:"POST /tags HTTP/1.1" 200 2223
+INFO:requests.packages.urllib3.connectionpool:Starting new HTTP connection (1): localhost
+INFO:requests.packages.urllib3.connectionpool:Starting new HTTP connection (1): localhost
