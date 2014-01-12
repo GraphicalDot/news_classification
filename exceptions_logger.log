@@ -949,3 +949,10 @@ INFO:gunicorn.access:122.161.52.18 - - [12/Jan/2014:19:44:03] "GET /favicon.ico 
 INFO:gunicorn.error:Worker exiting (pid: 1107)
 INFO:gunicorn.error:Worker exiting (pid: 1112)
 INFO:gunicorn.error:Worker exiting (pid: 1106)
+INFO:gunicorn.access:122.161.52.18 - - [12/Jan/2014:19:48:40] "GET /news?skip=10&count=10 HTTP/1.1" 200 5 "-" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:26.0) Gecko/20100101 Firefox/26.0"
+INFO:gunicorn.access:122.161.52.18 - - [12/Jan/2014:19:48:59] "GET /news?source=HT_NDLSskip=10&count=10 HTTP/1.1" 400 62 "-" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:26.0) Gecko/20100101 Firefox/26.0"
+INFO:gunicorn.access:122.161.52.18 - - [12/Jan/2014:19:49:05] "GET /news?source=HT_NDLS&skip=10&count=10 HTTP/1.1" 200 54 "-" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:26.0) Gecko/20100101 Firefox/26.0"
+INFO:gunicorn.access:122.161.52.18 - - [12/Jan/2014:20:04:05] "GET / HTTP/1.0" 404 233 "-" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:26.0) Gecko/20100101 Firefox/26.0"
+INFO:gunicorn.access:122.161.52.18 - - [12/Jan/2014:20:04:23] "GET / HTTP/1.0" 404 233 "-" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:26.0) Gecko/20100101 Firefox/26.0"
+INFO:gunicorn.access:122.161.52.18 - - [12/Jan/2014:20:04:31] "GET /news?source=HT_NDLS&skip=10&count=10 HTTP/1.0" 200 54 "-" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:26.0) Gecko/20100101 Firefox/26.0"
+INFO:gunicorn.access:122.161.52.18 - - [12/Jan/2014:20:04:50] "GET /news?skip=10&count=10 HTTP/1.0" 200 5 "-" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:26.0) Gecko/20100101 Firefox/26.0"
