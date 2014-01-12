@@ -66,7 +66,9 @@ class GetNews(Resource):
 						success= False,
 						messege=e.str(),)
 		
-		return json.dumps(NewsData.without_tag(skip=args.get("skip"), count=args.get("count") ))
+		return jsonify(result =NewsData.without_tag(skip=args.get("skip"), count=args.get("count")), 
+				error=False,
+				success= True,)
 
 
 class PostTags(Resource):

@@ -956,3 +956,42 @@ INFO:gunicorn.access:122.161.52.18 - - [12/Jan/2014:20:04:05] "GET / HTTP/1.0" 4
 INFO:gunicorn.access:122.161.52.18 - - [12/Jan/2014:20:04:23] "GET / HTTP/1.0" 404 233 "-" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:26.0) Gecko/20100101 Firefox/26.0"
 INFO:gunicorn.access:122.161.52.18 - - [12/Jan/2014:20:04:31] "GET /news?source=HT_NDLS&skip=10&count=10 HTTP/1.0" 200 54 "-" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:26.0) Gecko/20100101 Firefox/26.0"
 INFO:gunicorn.access:122.161.52.18 - - [12/Jan/2014:20:04:50] "GET /news?skip=10&count=10 HTTP/1.0" 200 5 "-" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:26.0) Gecko/20100101 Firefox/26.0"
+ERROR:__main__:An error occurred
+DEBUG:__main__:A value for debugging
+WARNING:__main__:A warning occurred (42 apples)
+INFO:__main__:My App
+INFO:werkzeug: * Running on http://127.0.0.1:5000/
+INFO:werkzeug: * Restarting with reloader
+ERROR:__main__:An error occurred
+DEBUG:__main__:A value for debugging
+WARNING:__main__:A warning occurred (42 apples)
+INFO:__main__:My App
+INFO:werkzeug:127.0.0.1 - - [13/Jan/2014 02:26:48] "GET /news?skip=10&count=1 HTTP/1.1" 200 -
+ERROR:__main__:An error occurred
+DEBUG:__main__:A value for debugging
+WARNING:__main__:A warning occurred (42 apples)
+INFO:__main__:My App
+INFO:werkzeug: * Running on http://127.0.0.1:5000/
+INFO:werkzeug: * Restarting with reloader
+ERROR:__main__:An error occurred
+DEBUG:__main__:A value for debugging
+WARNING:__main__:A warning occurred (42 apples)
+INFO:__main__:My App
+INFO:werkzeug:127.0.0.1 - - [13/Jan/2014 02:27:56] "GET /news?skip=10&count=1 HTTP/1.1" 500 -
+INFO:werkzeug:127.0.0.1 - - [13/Jan/2014 02:27:56] "GET /news?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [13/Jan/2014 02:27:56] "GET /news?__debugger__=yes&cmd=resource&f=jquery.js HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [13/Jan/2014 02:27:56] "GET /news?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [13/Jan/2014 02:27:56] "GET /news?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [13/Jan/2014 02:27:56] "GET /news?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [13/Jan/2014 02:27:56] "GET /news?__debugger__=yes&cmd=resource&f=source.png HTTP/1.1" 200 -
+ERROR:__main__:An error occurred
+DEBUG:__main__:A value for debugging
+WARNING:__main__:A warning occurred (42 apples)
+INFO:__main__:My App
+INFO:werkzeug: * Running on http://127.0.0.1:5000/
+INFO:werkzeug: * Restarting with reloader
+ERROR:__main__:An error occurred
+DEBUG:__main__:A value for debugging
+WARNING:__main__:A warning occurred (42 apples)
+INFO:__main__:My App
+INFO:werkzeug:127.0.0.1 - - [13/Jan/2014 02:28:45] "GET /news?skip=10&count=1 HTTP/1.1" 200 -

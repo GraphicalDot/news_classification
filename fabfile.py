@@ -9,7 +9,7 @@ import os
 import time
 
 env.use_ssh_config = True
-env.hosts = ["ec2-54-209-242-26.compute-1.amazonaws.com"]
+env.hosts = ["ec2-54-236-232-96.compute-1.amazonaws.com"]
 env.user = "ubuntu"
 env.key_filename = "/home/k/Programs/PemFiles/sanil_news.pem"
 env.warn_only = False
@@ -64,8 +64,8 @@ def installing_requirements():
 	"""
 	This function installs all the requirements required to run the package with the help of requirements.txt
 	"""
-	with prefix("cd /home/ubuntu/VirtualEnvironment &&source bin/activate && cd news_classification"):
-		run("sudo pip install -r requirements.txt")
+	with prefix("cd /home/ubuntu/VirtualEnvironment &&source bin/activate"):
+		run("sudo pip install -r news_classification/requirements.txt")
 
 def update_git():
 	"""
@@ -159,6 +159,7 @@ def supervisord():
 	"""
 	with settings(user="ubuntu"):
 		with prefix("cd /home/ubuntu/VirtualEnvironment &&source bin/activate && cd news_classification"):
+			#You need to create a config file as you dont have the access 
 			run("sudo touch /etc/supervisord.conf")
 			run("sudo cp configs/supervisord.conf /etc/supervisord.conf")
 			run("supervisord")
