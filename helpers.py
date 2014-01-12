@@ -126,7 +126,7 @@ class NewsData(object):
 
 		def edit_db(id, tag):
 			if collection.find_one({"_id": ObjectId(id)}):
-				#collection.update({"_id": id}, {"$set": {"tag": tag}})	
+				collection.update({"_id": id}, {"$set": {"tag": tag}})	
 				return
 			invalid_ids.append(id)
 			return 
