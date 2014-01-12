@@ -10,6 +10,6 @@ worker_connections = 1000
 graceful_timeout = 30
 keepalive = 5
 debug = True
-daemon = True
+daemon = False
 accesslog = "/applogs/gunicorn_access.log"
 errorlog = "/applogs/gunicorn_error.log"

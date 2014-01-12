@@ -916,3 +916,29 @@ INFO:gunicorn.error:Worker exiting (pid: 19761)
 INFO:gunicorn.error:Worker exiting (pid: 19773)
 INFO:gunicorn.error:Worker exiting (pid: 20474)
 INFO:gunicorn.error:Worker exiting (pid: 20485)
+INFO:gunicorn.error:Worker exiting (pid: 980)
+INFO:gunicorn.error:Parent changed, shutting down: <Worker 997>
+INFO:gunicorn.error:Worker exiting (pid: 997)
+INFO:gunicorn.error:Parent changed, shutting down: <Worker 998>
+INFO:gunicorn.error:Worker exiting (pid: 998)
+INFO:gunicorn.error:Parent changed, shutting down: <Worker 1003>
+INFO:gunicorn.error:Worker exiting (pid: 1003)
+INFO:gunicorn.error:Worker exiting (pid: 1141)
+INFO:gunicorn.error:Parent changed, shutting down: <Worker 1212>
+INFO:gunicorn.error:Worker exiting (pid: 1212)
+INFO:gunicorn.error:Parent changed, shutting down: <Worker 1213>
+INFO:gunicorn.error:Worker exiting (pid: 1213)
+INFO:gunicorn.error:Parent changed, shutting down: <Worker 1214>
+INFO:gunicorn.error:Worker exiting (pid: 1214)
+INFO:gunicorn.error:Parent changed, shutting down: <Worker 1313>
+INFO:gunicorn.error:Worker exiting (pid: 1313)
+INFO:gunicorn.error:Parent changed, shutting down: <Worker 1314>
+INFO:gunicorn.error:Worker exiting (pid: 1314)
+INFO:gunicorn.error:Parent changed, shutting down: <Worker 1315>
+INFO:gunicorn.error:Worker exiting (pid: 1315)
+INFO:gunicorn.error:Parent changed, shutting down: <Worker 1551>
+INFO:gunicorn.error:Worker exiting (pid: 1551)
+INFO:gunicorn.error:Parent changed, shutting down: <Worker 1552>
+INFO:gunicorn.error:Worker exiting (pid: 1552)
+INFO:gunicorn.error:Parent changed, shutting down: <Worker 1553>
+INFO:gunicorn.error:Worker exiting (pid: 1553)
