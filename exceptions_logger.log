@@ -909,3 +909,8 @@ ERROR:__main__:An error occurred
 DEBUG:__main__:A value for debugging
 WARNING:__main__:A warning occurred (42 apples)
 INFO:__main__:My App
+INFO:gunicorn.error:Worker exiting (pid: 17874)
+INFO:gunicorn.error:Worker exiting (pid: 19402)
+INFO:gunicorn.error:Worker exiting (pid: 19750)
+INFO:gunicorn.error:Worker exiting (pid: 19761)
+INFO:gunicorn.error:Worker exiting (pid: 19773)
