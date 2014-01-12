@@ -942,3 +942,10 @@ INFO:gunicorn.error:Parent changed, shutting down: <Worker 1552>
 INFO:gunicorn.error:Worker exiting (pid: 1552)
 INFO:gunicorn.error:Parent changed, shutting down: <Worker 1553>
 INFO:gunicorn.error:Worker exiting (pid: 1553)
+INFO:gunicorn.error:Worker exiting (pid: 1043)
+INFO:gunicorn.access:122.161.52.18 - - [12/Jan/2014:19:44:02] "GET /news?skip=10&count=10 HTTP/1.1" 200 5 "-" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:26.0) Gecko/20100101 Firefox/26.0"
+INFO:gunicorn.access:122.161.52.18 - - [12/Jan/2014:19:44:03] "GET /favicon.ico HTTP/1.1" 404 233 "-" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:26.0) Gecko/20100101 Firefox/26.0"
+INFO:gunicorn.access:122.161.52.18 - - [12/Jan/2014:19:44:03] "GET /favicon.ico HTTP/1.1" 404 233 "-" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:26.0) Gecko/20100101 Firefox/26.0"
+INFO:gunicorn.error:Worker exiting (pid: 1107)
+INFO:gunicorn.error:Worker exiting (pid: 1112)
+INFO:gunicorn.error:Worker exiting (pid: 1106)
