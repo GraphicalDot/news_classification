@@ -3,6 +3,7 @@
 import os
 import goose
 import time
+import random
 import logging
 from rss_feeds import Rss as R
 from custom_logging import exceptions_logger
@@ -11,7 +12,7 @@ _g_instance = goose.Goose()
 def extracting_text(link):
 	try:
 		extract = _g_instance.extract(link)
-#		time.sleep(5)
+		time.sleep(random.choice(range(0, 20)))
 		return extract.cleaned_text
 	except Exception as e:
 		print "exception in extracting_text with goose"
@@ -60,6 +61,54 @@ def toi_ndls_data():
 	data = R.toi_ndls_rss()
 	for news in data:
 		news.update(dict(full_text = extracting_text(news.get("link")), source="TOI_NDLS", scraped_epoch= time.time(), scraped_date=time.strftime("%d/%m/%Y")))
+	return data
+
+
+
+def toi_india_data():
+	"""
+	This functions gets the latest news from R.toi_ndls_rss() function and adds a two new fields to this list of 
+	dictionaries
+	1. full_text, Which will have the full text of the news link scraped by the Goose library.
+	2. source, Which will have the name of the news source
+	3. scraped_on, the time stamp on which it was scraped
+	4. scraped_date, The human readable time foramt on which the data was scraped
+	"""
+	data = R.toi_toi_rss()
+	for news in data:
+		news.update(dict(full_text = extracting_text(news.get("link")), source="TOI_INDIA", scraped_epoch= time.time(), scraped_date=time.strftime("%d/%m/%Y")))
+	return data
+
+
+
+def ht_india_data():
+	"""
+	This functions gets the latest news from R.ht_india_rss() function and adds a two new fields to this list of 
+	dictionaries
+	1. full_text, Which will have the full text of the news link scraped by the Goose library.
+	2. source, Which will have the name of the news source
+	3. scraped_on, the time stamp on which it was scraped
+	4. scraped_date, The human readable time foramt on which the data was scraped
+	"""
+	data = R.ht_india_rss()
+	for news in data:
+		news.update(dict(full_text = extracting_text(news.get("link")), source="HT_INDIA", scraped_epoch= time.time(), scraped_date=time.strftime("%d/%m/%Y")))
+	return data
+
+
+
+def hin_india_data():
+	"""
+	This functions gets the latest news from R.hin_india_rss() function and adds a two new fields to this list of 
+	dictionaries
+	1. full_text, Which will have the full text of the news link scraped by the Goose library.
+	2. source, Which will have the name of the news source
+	3. scraped_on, the time stamp on which it was scraped
+	4. scraped_date, The human readable time foramt on which the data was scraped
+	"""
+	data = R.hin_india_rss()
+	for news in data:
+		news.update(dict(full_text = extracting_text(news.get("link")), source="HINDU_INDIA", scraped_epoch= time.time(), scraped_date=time.strftime("%d/%m/%Y")))
 	return data
 
 

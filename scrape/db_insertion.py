@@ -4,7 +4,7 @@
 This is the file responsible for actually inserting data in the database.
 """
 
-from full_text import hindustan_ndls_data, hindu_ndls_data, toi_ndls_data
+from full_text import hindustan_ndls_data, hindu_ndls_data, toi_ndls_data, toi_india_data, ht_india_data, hin_india_data
 from database import DB, collection
 from custom_logging import exceptions_logger
 import traceback
@@ -59,6 +59,33 @@ class DBInsert(object):
 
 
 
+	@staticmethod
+	def toi_india():
+		try:
+			__data = toi_india_data()
+			DBInsert.__db_insert(__data)
+		except:
+			logging.exception('Got exception in %s'%(inspect.stack()[0][3]))
+			pass
 
 
+	
+	@staticmethod
+	def ht_india():
+		try:
+			__data = ht_india_data()
+			DBInsert.__db_insert(__data)
+		except:
+			logging.exception('Got exception in %s'%(inspect.stack()[0][3]))
+			pass
+
+
+	@staticmethod
+	def hin_india():
+		try:
+			__data = hin_inida_data()
+			DBInsert.__db_insert(__data)
+		except:
+			logging.exception('Got exception in %s'%(inspect.stack()[0][3]))
+			pass
 

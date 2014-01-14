@@ -8,8 +8,9 @@ import sys
 HINDUSTAN_TIMES_NDLS = "http://www.hindustantimes.com/HT-feed/FeedXml.aspx?c=NewDelhi"
 TOI_NDLS = "http://timesofindia.feedsportal.com/c/33039/f/533976/index.rss"
 HINDU_NDLS = "http://www.thehindu.com/news/cities/Delhi/?service=rss"
-
-
+HINDUSTAN_INDIA = "http://feeds.hindustantimes.com/HT-India"
+TOI_INDIA = "http://timesofindia.feedsportal.com/c/33039/f/533916/index.rss"
+HINDU_INDIA = "http://www.thehindu.com/news/national/?service=rss"
 class Rss(object):
 	def __init__(self, src_name, rss_link):
 		self.src_name = src_name
@@ -84,6 +85,21 @@ class Rss(object):
 	@staticmethod
 	def toi_ndls_rss():
 		instance = Rss("TOI_NDLS", TOI_NDLS)
+		return instance.__main_logic()
+	
+	@staticmethod
+	def ht_india_rss():
+		instance = Rss("HT_INDIA", HINDUSTAN_INDIA)
+		return instance.__main_logic()
+	
+	@staticmethod
+	def hin_india_rss():
+		instance = Rss("HINDU_INDIA", HINDU_INDIA)
+		return instance.__main_logic()
+	
+	@staticmethod
+	def toi_india_rss():
+		instance = Rss("TOI_INDIA", TOI_INDIA)
 		return instance.__main_logic()
 	
 	
