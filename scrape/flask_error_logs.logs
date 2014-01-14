@@ -1,0 +1,8 @@
+2014-01-12 20:56:04,187 ERROR: An error occurred custom_logging [in /home/ubuntu/VirtualEnvironment/news_classification/scrape/custom_logging.py:36]
+2014-01-12 20:56:04,188 DEBUG: A value for debugging custom_logging [in /home/ubuntu/VirtualEnvironment/news_classification/scrape/custom_logging.py:37]
+2014-01-12 20:56:04,188 WARNING: A warning occurred (42 apples) custom_logging [in /home/ubuntu/VirtualEnvironment/news_classification/scrape/custom_logging.py:38]
+2014-01-12 20:56:04,188 INFO: My App custom_logging [in /home/ubuntu/VirtualEnvironment/news_classification/scrape/custom_logging.py:39]
+2014-01-12 20:56:04,496 ERROR: An error occurred custom_logging [in /home/ubuntu/VirtualEnvironment/news_classification/scrape/custom_logging.py:36]
+2014-01-12 20:56:04,497 DEBUG: A value for debugging custom_logging [in /home/ubuntu/VirtualEnvironment/news_classification/scrape/custom_logging.py:37]
+2014-01-12 20:56:04,497 WARNING: A warning occurred (42 apples) custom_logging [in /home/ubuntu/VirtualEnvironment/news_classification/scrape/custom_logging.py:38]
+2014-01-12 20:56:04,497 INFO: My App custom_logging [in /home/ubuntu/VirtualEnvironment/news_classification/scrape/custom_logging.py:39]

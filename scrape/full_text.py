@@ -74,7 +74,7 @@ def toi_india_data():
 	3. scraped_on, the time stamp on which it was scraped
 	4. scraped_date, The human readable time foramt on which the data was scraped
 	"""
-	data = R.toi_toi_rss()
+	data = R.toi_india_rss()
 	for news in data:
 		news.update(dict(full_text = extracting_text(news.get("link")), source="TOI_INDIA", scraped_epoch= time.time(), scraped_date=time.strftime("%d/%m/%Y")))
 	return data

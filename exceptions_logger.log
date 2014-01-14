@@ -995,3 +995,39 @@ DEBUG:__main__:A value for debugging
 WARNING:__main__:A warning occurred (42 apples)
 INFO:__main__:My App
 INFO:werkzeug:127.0.0.1 - - [13/Jan/2014 02:28:45] "GET /news?skip=10&count=1 HTTP/1.1" 200 -
+ERROR:root:Got exception in toi_india
+Traceback (most recent call last):
+  File "/home/ubuntu/VirtualEnvironment/news_classification/scrape/db_insertion.py", line 65, in toi_india
+    __data = toi_india_data()
+  File "/home/ubuntu/VirtualEnvironment/news_classification/scrape/full_text.py", line 77, in toi_india_data
+    data = R.toi_toi_rss()
+AttributeError: type object 'Rss' has no attribute 'toi_toi_rss'
+ERROR:root:Got exception in hin_india
+Traceback (most recent call last):
+  File "/home/ubuntu/VirtualEnvironment/news_classification/scrape/db_insertion.py", line 86, in hin_india
+    __data = hin_inida_data()
+NameError: global name 'hin_inida_data' is not defined
+ERROR:root:Got exception in toi_india
+Traceback (most recent call last):
+  File "/home/ubuntu/VirtualEnvironment/news_classification/scrape/db_insertion.py", line 65, in toi_india
+    __data = toi_india_data()
+  File "/home/ubuntu/VirtualEnvironment/news_classification/scrape/full_text.py", line 77, in toi_india_data
+    data = R.toi_toi_rss()
+AttributeError: type object 'Rss' has no attribute 'toi_toi_rss'
+ERROR:root:Got exception in hin_india
+Traceback (most recent call last):
+  File "/home/ubuntu/VirtualEnvironment/news_classification/scrape/db_insertion.py", line 86, in hin_india
+    __data = hin_inida_data()
+NameError: global name 'hin_inida_data' is not defined
+ERROR:root:Got exception in toi_india
+Traceback (most recent call last):
+  File "/home/ubuntu/VirtualEnvironment/news_classification/scrape/db_insertion.py", line 65, in toi_india
+    __data = toi_india_data()
+  File "/home/ubuntu/VirtualEnvironment/news_classification/scrape/full_text.py", line 77, in toi_india_data
+    data = R.toi_toi_rss()
+AttributeError: type object 'Rss' has no attribute 'toi_toi_rss'
+ERROR:root:Got exception in hin_india
+Traceback (most recent call last):
+  File "/home/ubuntu/VirtualEnvironment/news_classification/scrape/db_insertion.py", line 86, in hin_india
+    __data = hin_inida_data()
+NameError: global name 'hin_inida_data' is not defined

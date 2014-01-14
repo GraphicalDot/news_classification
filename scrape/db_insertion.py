@@ -83,7 +83,7 @@ class DBInsert(object):
 	@staticmethod
 	def hin_india():
 		try:
-			__data = hin_inida_data()
+			__data = hin_india_data()
 			DBInsert.__db_insert(__data)
 		except:
 			logging.exception('Got exception in %s'%(inspect.stack()[0][3]))

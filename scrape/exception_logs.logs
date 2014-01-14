@@ -1,0 +1,1 @@
+2014-01-13 15:01:03,145 ERROR: [Errno 13] Permission denied: '/tmp/goose/7db163733b409c483a77ab858a6a567b.1389625262.47_b06b2eab6986fd317e04f6c2a2474a3b' custom_logging [in /home/ubuntu/VirtualEnvironment/news_classification/scrape/custom_logging.py:18]
